@@ -3,7 +3,7 @@ home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: Flex Layout System
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /components/
 features:
   - title: Simplify Layouts
     details: Create flexible and responsive layouts with ease using the powerful Flex Layout System.
