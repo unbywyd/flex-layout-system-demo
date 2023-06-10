@@ -1,0 +1,228 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+ul,
+ol,
+button,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+$primary: #116d6e;
+$secondary: #cd1818;
+$brown: #4e3636;
+$dark: #321e1e;
+$yellow: #ffd95a;
+$bg: #201e1c;
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  color: #fefefe;
+  background-color: $bg;
+  line-height: 1.5;
+}
+.main-header {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h1 {
+    .subtitle {
+      color: $yellow;
+    }
+  }
+}
+
+code.h {
+  background-color: $yellow;
+  color: $brown;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.divider {
+  height: 4px;
+  width: 100%;
+  border-radius: 12px;
+  background-image: url(../assets/bg.webp);
+  background-size: cover;
+}
+
+.block {
+  display: block;
+}
+.p-btn {
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    outline: 2px dashed $yellow;
+    border-radius: 12px;
+    outline-offset: 4px;
+  }
+  svg {
+    fill: $yellow;
+  }
+}
+.btn {
+  background-color: $primary;
+  display: inline-flex;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 700;
+  color: $yellow;
+  padding: 10px 30px;
+  border-radius: 42px;
+  overflow: hidden;
+  position: relative;
+  border-block-end: 2px solid #000;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.main-menu {
+  &:before {
+    content: "";
+    height: 10px;
+    background-size: 100% auto;
+    background-position: center center;
+    background-image: url("../assets/bg.webp");
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  padding: 1em 0;
+  @media screen and (min-width: 600px) {
+    padding-top: 2em;
+  }
+  background-color: $bg;
+  ul {
+    overflow-x: auto;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    a {
+      color: #fefefe;
+      text-decoration: none;
+      font-size: 20px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+.code-demo {
+  pre {
+    font-size: 16px;
+    code {
+      overflow: hidden !important;
+      padding: 1em 2em !important;
+    }
+  }
+}
+pre {
+  tab-size: 0 !important;
+  white-space: pre-wrap !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+// scroll stylize
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $bg;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary;
+}
+a {
+  color: $yellow;
+}
+.color-red {
+  color: $secondary;
+}
+.color-green {
+  color: #3ab770; // green
+}
+.color-yellow {
+  color: $yellow;
+}
+
+.s2 {
+  position: relative;
+  padding-left: 60px;
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    background-image: url(../assets/bg.webp);
+    top: 0;
+    border-radius: 12px;
+    bottom: 0;
+    left: 0;
+  }
+  @media screen and (max-width: 780px) {
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+  }
+}
