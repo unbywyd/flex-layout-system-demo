@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: https://flex-layout-system.netlify.app/assets/logo.svg
 tagline: Flex Layout System
 actionText: Quick Start →
 actionLink: /components/
