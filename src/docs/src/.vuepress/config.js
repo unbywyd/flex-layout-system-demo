@@ -1,10 +1,16 @@
 const { description } = require('../../package')
 
+const path = require('path');
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
   title: 'Flex Layout System',
+
+  base: "/docs/",
+
+  dest: path.join(__dirname, '../../../../docs'),
+
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
