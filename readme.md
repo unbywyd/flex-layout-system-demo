@@ -21,6 +21,12 @@ npm install flex-layout-system
 Step 2: Importing and using the components In your TypeScript/JS file. For example, to use the base layout without utilities and styles, import the following:
 
 ```js
+// TS project / source file with TS support
+import "flex-layout-system";
+
+import "flex-layout-system/dist/css-responsive.min.css";
+
+// JS project
 // Only one of the following is required.
 // If you want to use the base layout, import the following:
 import "flex-layout-system/dist/base.min.js";
