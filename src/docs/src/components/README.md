@@ -78,6 +78,7 @@ The `FlexBox` component is used as a flexible container that provides layout cap
 The following props can be used to apply specific styling classes to the `FlexBox` component:
 
 - `nowrap` (boolean, optional): Prevents the flex items from wrapping to multiple lines. When set to `true`, the flex items are forced to stay on a single line.
+- `wrap` (boolean, optional): Allows the flex items to wrap to multiple lines. When set to `true`, the flex items wrap if necessary.
 - `reverse` (boolean, optional): Reverses the order of the flex items. When set to `true`, the flex items are displayed in reverse order.
 - `inline` (boolean, optional): Specifies whether the `FlexBox` should be displayed as an inline-flex container. When set to `true`, the `FlexBox` is rendered inline.
 - `center` (boolean, optional): Aligns the flex items both horizontally and vertically at the center of the `FlexBox`.
@@ -154,12 +155,14 @@ To use the `FlexCell` component in your HTML project, include the following code
 
 The `FlexCell` component supports the following props:
 
-| Name   | Type   | Default | Description                        |
-| ------ | ------ | ------- | ---------------------------------- |
-| order  | number | null    | The order of the cell in the grid. |
-| grow   | number | null    | The flex grow value of the cell.   |
-| shrink | number | null    | The flex shrink value of the cell. |
-| width  | string | null    | The width of the cell.             |
+| Name   | Type                                                       | Default | Description                        |
+| ------ | ---------------------------------------------------------- | ------- | ---------------------------------- |
+| order  | number                                                     | null    | The order of the cell in the grid. |
+| grow   | number                                                     | null    | The flex grow value of the cell.   |
+| shrink | number                                                     | null    | The flex shrink value of the cell. |
+| width  | string                                                     | null    | The width of the cell.             |
+| basis  | string                                                     | null    | The flex basis of the cell.        |
+| as     | center, start, end, stretch, baseline, auto, normal, unset | null    | The align self value of the cell.  |
 
 ### Styling
 
@@ -179,6 +182,7 @@ The FlexCell component can be styled using the following attributes on the `:hos
 | order="X"  | Sets the order of the flex cell to `X`.              |
 | grow="X"   | Sets the flex grow factor to `X`.                    |
 | shrink="X" | Sets the flex shrink factor to `X`.                  |
+| as="X"     | Sets the align self value to `X`.                    |
 
 To use the 12-column grid system, you can apply the `cell-X` class to the FlexCell component, where X is a number from 1 to 12 representing the desired width of the column.
 
@@ -536,8 +540,6 @@ To use the **SpaceBox** component, simply include it in your HTML:
 | height | string | null    | The height of the box                  |
 | size   | string | null    | The size (width and height) of the box |
 
-### Styling
-
 ### Custom Styling
 
 ```tip
@@ -554,6 +556,40 @@ To use the **SpaceBox** component, simply include it in your HTML:
 
 The `StyleBox` component allows you to customize various styling properties of an HTML element.
 
+### Props
+
+| Name  | Type   | Default | Description                             |
+| ----- | ------ | ------- | --------------------------------------- |
+| color | string | null    | The color of the element                |
+| scale | string | null    | The scale of the element                |
+| fz    | string | null    | The font size of the element            |
+| fw    | string | null    | The font weight of the element          |
+| lh    | string | null    | The line height of the element          |
+| w     | string | null    | The width of the element                |
+| h     | string | null    | The height of the element               |
+| mw    | string | null    | The minimum width of the element        |
+| mh    | string | null    | The minimum height of the element       |
+| mxw   | string | null    | The maximum width of the element        |
+| mxh   | string | null    | The maximum height of the element       |
+| pis   | string | null    | The inline start padding of the element |
+| pie   | string | null    | The inline end padding of the element   |
+| pbs   | string | null    | The block start padding of the element  |
+| pbe   | string | null    | The block end padding of the element    |
+| mis   | string | null    | The inline start margin of the element  |
+| mie   | string | null    | The inline end margin of the element    |
+| mbs   | string | null    | The block start margin of the element   |
+| mbe   | string | null    | The block end margin of the element     |
+| mg    | string | null    | The margin of the element               |
+| pd    | string | null    | The padding of the element              |
+| ta    | string | null    | The text alignment of the element       |
+| op    | string | null    | The opacity of the element              |
+| td    | string | null    | The text decoration of the element      |
+| br    | string | null    | The border radius of the element        |
+| px    | string | null    | The horizontal padding (left and right) |
+| py    | string | null    | The vertical padding (top and bottom)   |
+| mx    | string | null    | The horizontal margin (left and right)  |
+| my    | string | null    | The vertical margin (top and bottom)    |
+
 ### Usage
 
 To use the `StyleBox` component, simply include it in your HTML:
@@ -566,36 +602,4 @@ To use the `StyleBox` component, simply include it in your HTML:
 
 - `block` - Sets the display property of the element to `block`.
 - `inline` - Sets the display property of the element to `inline`.
-- `fb` - fallback method, an attribute that specifies to reset child element styles apply styles only to the `host`
-
-### Styling
-
-| Property | Type   | Default | Description                             |
-| -------- | ------ | ------- | --------------------------------------- |
-| fz       | string | null    | The font size of the element            |
-| fw       | string | null    | The font weight of the element          |
-| lh       | string | null    | The line height of the element          |
-| w        | string | null    | The width of the element                |
-| h        | string | null    | The height of the element               |
-| mw       | string | null    | The minimum width of the element        |
-| mxw      | string | null    | The maximum width of the element        |
-| mh       | string | null    | The minimum height of the element       |
-| mxh      | string | null    | The maximum height of the element       |
-| pis      | string | null    | The inline start padding of the element |
-| pie      | string | null    | The inline end padding of the element   |
-| pbs      | string | null    | The block start padding of the element  |
-| pbe      | string | null    | The block end padding of the element    |
-| mis      | string | null    | The inline start margin of the element  |
-| mie      | string | null    | The inline end margin of the element    |
-| mbs      | string | null    | The block start margin of the element   |
-| mbe      | string | null    | The block end margin of the element     |
-| mg       | string | null    | The margin of the element               |
-| pd       | string | null    | The padding of the element              |
-| ta       | string | null    | The text alignment of the element       |
-| op       | string | null    | The opacity of the element              |
-| td       | string | null    | The text decoration of the element      |
-| br       | string | null    | The border radius of the element        |
-| px       | string | null    | The horizontal padding (left and right) |
-| py       | string | null    | The vertical padding (top and bottom)   |
-| mx       | string | null    | The horizontal margin (left and right)  |
-| my       | string | null    | The vertical margin (top and bottom)    |
+- `inherit` - Sets the display property for text-decoration, font-size, font-weight, line-height, text-align, text-transform of the element to `inherit`.
