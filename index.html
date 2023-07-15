@@ -267,6 +267,46 @@ import "flex-layout-system/dist/js-responsive.min.css";
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/flex-layout-system/dist/js-responsive.min.css&quot;&gt;
   </code></pre>
       </flex-box>
+      <flex-box class="s2" column gap="1em">
+        <s-box w="100%" fz="2em" block ta="center">
+          <h3>Angular</h3>
+          <space-box height="1em"></space-box>
+        </s-box>
+        <p>
+          If you want to use this library in your Angular project, you can use the following:
+        </p>
+        <s-box block>
+          <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
+        </s-box>
+        <p>
+          Then, in your <code>angular.json</code> file, add the following:
+        </p>
+        <s-box block>
+<pre>
+<code class="language-json">
+  "styles": [
+  "node_modules/flex-layout-system/dist/css-responsive.min.css"
+],
+</code>
+</pre>
+        </s-box>
+        <p>
+          Finally, in your <code>app.module.ts</code> file, add the following:
+        </p>
+        <s-box block>
+<pre>
+<code class="language-ts">
+  import "flex-layout-system";
+  import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+
+  @NgModule({
+    ...
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  })
+</code>
+</pre>
+        </s-box>
+      </flex-box>
     </flex-canvas>
 
     <flex-canvas width="1200px" pd="4em 1em 2em">
