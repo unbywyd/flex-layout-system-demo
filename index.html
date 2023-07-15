@@ -229,24 +229,20 @@
         <p><i class="color-yellow">Step 1</i>: <b>Install the package</b>
           Run the following command in your project to install the Flex Layout System package from npm:</p>
         <s-box>
-          <pre><code class="language-bash">npm install flex-layout-system</code></pre>
+          <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
         </s-box>
-        <p><i class="color-yellow">Step 2</i>: Importing and using the components
-          In your TypeScript/JS file. For example, to
-          use the base layout without utilities and styles, import the following:</p>
+        <p>
+          If you want to use the <a href="https://www.npmjs.com/package/flex-layout-system-react" target="_blank">React
+            version</a>, run the following command:
+          <s-box>
+            <pre><code class="language-bash">npm install <b>flex-layout-system-react</b></code></pre>
+          </s-box>
+        </p>
+        <p><i class="color-yellow">Step 2</i>: <b>Use It!</b></p>
         <s-box>
           <pre><code class="language-js">
-// TS (TSX/React) project:
+// ES/TS Project:
 import "flex-layout-system";
-import "flex-layout-system/dist/css-responsive.min.css";
-
-// JS project:            
-// Only one of the following is required.
-// If you want to use the base layout, import the following:
-import "flex-layout-system/dist/base.min.js";
-
-// If you want to use the layout with utilities, import the following:
-import "flex-layout-system/dist/full.min.js";
 
 // Optional. If you want to use the responsive utilities based on CSS Media Queries, import the following:
 import "flex-layout-system/dist/css-responsive.min.css";
@@ -259,10 +255,10 @@ import "flex-layout-system/dist/js-responsive.min.css";
         <pre><code class="language-html">
 &lt;!-- Only one of the following is required. --&gt;
 &lt;!-- If you want to use the base layout, import the following: --&gt;
-&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/base.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/browser-layout.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- If you want to use the layout with utilities, import the following: --&gt;
-&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/full.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/browser.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- Optional. If you want to use the responsive utilities based on CSS Media Queries, import the following: --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/flex-layout-system/dist/css-responsive.min.css&quot;&gt;
@@ -760,6 +756,58 @@ import "flex-layout-system/dist/js-responsive.min.css";
               <p>FlexDivider is a versatile component designed for effortless content separation within layouts. It
                 provides a simple yet effective way to create divisions between sections or columns, adapting seamlessly
                 to different orientations and color themes.</p>
+            </flex-box>
+          </flex-cell>
+
+        </flex-box>
+      </flex-grid>
+      <space-box size="4em"></space-box>
+      <flex-grid gap="20px" compact>
+        <flex-box row middle>
+          <flex-cell class="cell-12 cell-md-6">
+            <s-box block>
+              <pre><code class="language-html">
+&lt;sr-only&gt;
+Invisible to the naked eye, but not to screen readers.
+&lt;/sr-only&gt;
+              </code></pre>
+            </s-box>
+          </flex-cell>
+          <flex-cell class="cell-12 cell-md-6">
+            <flex-box column gap="20px">
+              <h4>
+                <s-box fz="1.4em">ScreenReaderOnly</s-box>
+              </h4>
+              <p>The sr-only component is designed to improve web accessibility by hiding information visually while
+                keeping it available for assistive technologies like screen readers. This means it can be used to
+                provide additional context or detailed descriptions without cluttering the visual design.
+              </p>
+            </flex-box>
+          </flex-cell>
+        </flex-box>
+      </flex-grid>
+      <space-box size="4em"></space-box>
+      <flex-grid gap="20px" compact>
+        <flex-box row middle>
+          <flex-cell class="cell-12 cell-md-6">
+            <s-box block>
+              <pre><code class="language-html">
+&lt;ltr-only&gt;
++97205000000
+&lt;/ltr-only&gt;
+              </code></pre>
+            </s-box>
+          </flex-cell>
+          <flex-cell class="cell-12 cell-md-6">
+            <flex-box column gap="20px">
+              <h4>
+                <s-box fz="1.4em">LtrOnly</s-box>
+              </h4>
+              <p>
+                The LtrOnly component is designed to ensure the correct display of specific text elements such as phone
+                numbers, regardless of the text direction settings of the web page. This is particularly useful in
+                multilingual interfaces where different text directions may be used.
+              </p>
             </flex-box>
           </flex-cell>
         </flex-box>
