@@ -282,7 +282,7 @@ import "flex-layout-system/dist/js-responsive.min.css";
           Then, in your <code>angular.json</code> file, add the following:
         </p>
         <s-box block>
-<pre>
+          <pre>
 <code class="language-json">
   "styles": [
   "node_modules/flex-layout-system/dist/css-responsive.min.css"
@@ -294,7 +294,7 @@ import "flex-layout-system/dist/js-responsive.min.css";
           Finally, in your <code>app.module.ts</code> file, add the following:
         </p>
         <s-box block>
-<pre>
+          <pre>
 <code class="language-ts">
   import "flex-layout-system";
   import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -307,6 +307,38 @@ import "flex-layout-system/dist/js-responsive.min.css";
 </pre>
         </s-box>
       </flex-box>
+
+
+      <flex-box class="s2" column gap="1em">
+        <s-box w="100%" fz="2em" block ta="center">
+          <h3>NextJS</h3>
+          <space-box height="1em"></space-box>
+        </s-box>
+        <p>
+          If you want to use this library in your NextJS project, you can use the following:
+        </p>
+        <s-box block>
+          <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
+        </s-box>       
+
+        <s-box block>
+          <pre>
+<code class="language-ts">
+  "use client"; // This is required for NextJS, you need to add this line at the top of the file but not in page.ts file, you need to create a new file in the components folder and import it in the page.ts file with this line
+
+  import "flex-layout-system/jsx.types.d"; // Import types
+  import "flex-layout-system"; // Import components
+  
+  // Just use the web components in your JSX file, for example:
+  <flex-box jc="space-between">
+    <span>1</span>
+    <span>1</span>
+  </flex-box>;
+</code>
+</pre>
+        </s-box>
+      </flex-box>
+
     </flex-canvas>
 
     <flex-canvas width="1200px" pd="4em 1em 2em">
