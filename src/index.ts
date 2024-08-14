@@ -1,6 +1,5 @@
-import "flex-layout-system/dist/full.min.js";
-import "flex-layout-system/dist/js-responsive.min.css";
 import "./style.scss";
+import "flex-layout-system";
 const hljs = require("highlight.js/lib/core");
 // styles
 import "highlight.js/styles/atom-one-dark.css";

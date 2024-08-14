@@ -20,7 +20,7 @@
     content="Introducing Flex Layout System: a powerful library of web components that empowers effortless web design and simplifies the process of building responsive layouts. With a wide range of flexible components and a robust grid implementation, Flex Layout System enhances your web design development, promoting cleaner and more maintainable code.">
 
   <meta property="og:image" content="/cover.png">
-  <meta property="og:url" content="https://flex-layout-system.netlify.app/">
+  <meta property="og:url" content="https://flexlayout.com/">
 
   <!-- Twitter Cards -->
   <meta name="twitter:title" content="Flex Layout System: Effortless Web Design with Powerful Grid Components">
@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="/cover.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <script src="dist/index.min.js"></script>
+  <script src="/dist/index.min.js"></script>
   <link rel="stylesheet" href="/dist/index.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,57 +53,57 @@
   <meta name="author" content="unbywyd" />
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
 </head>
 
 <body>
-  <flex-media breakpoints="780,1200,1400,1600">
-
-    <nav class="main-menu">
-      <ul>
-        <li>
-          <a href="#get-started">
-            Get Started
-          </a>
-        </li>
-        <li>
-          <a href="/docs">
-            Documentation
-          </a>
-        </li>
-        <li>
-          <a href="#examples">
-            Examples
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/unbywyd/flex-layout-system" target="_blank">
-            Github
-          </a>
-        </li>
-        <li>
-          <a href="https://unbywyd.com" target="_blank">
-            Author
-          </a>
-        </li>
-        <li>
-          <a href="https://aiweb.co.il" target="_blank">
-            Sponsor AIWEB
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <flex-canvas pd="10em 0 6em">
-      <flex-grid gap="20px">
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box class="main-header" column start gap="40px">
+  <nav class="main-menu">
+    <ul>
+      <li>
+        <a href="#get-started">
+          Get Started
+        </a>
+      </li>
+      <li>
+        <a href="/docs">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="#examples">
+          Examples
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/unbywyd/flex-layout-system" target="_blank">
+          Github
+        </a>
+      </li>
+      <li>
+        <a href="https://unbywyd.com" target="_blank">
+          Author
+        </a>
+      </li>
+      <li>
+        <a href="https://aiweb.co.il" target="_blank">
+          Sponsor AIWEB
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="app-container">
+    <flex-canvas pd="20px">
+      
+      <space-box size="120px"></space-box>
+      
+      <flex-grid compact crop gap="50px, xs 20px">
+        <flex-box wrap ai="center">
+          <flex-cell w="50%, sm 100%">
+            <flex-box class="main-header" column start gap="30px">
               <img src="/assets/logo.svg" width="80" height="80" alt="Flexible Web Components Grid System">
               <h1>
                 <s-box lh="1" block>
                   <s-box block fz="1.8em" mbe=".2em">
-                    Flex Layout System
+                    Flex Layout <s-box color="#e06c75">2.0</s-box>
                   </s-box>
                   <s-box fz=".8em" block class="subtitle">
                     Flexible Web Components Grid System
@@ -111,12 +111,10 @@
                 </s-box>
               </h1>
               <p class="desc">
-                Flex Layout Grid System - a library of web components for creating flexible flex layouts on
-                your
-                website.
+                Flex Layout - a library of web components for creating flexible flex layouts on your website.
               </p>
               <div class="divider"></div>
-              <flex-box middle row gap="30px">
+              <flex-box ai="center" gap="30px">
                 <a href="#get-started" class="btn">
                   Get Started
                 </a>
@@ -137,136 +135,94 @@
 
             </flex-box>
           </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
+          <flex-cell w="50%, sm 100%">
             <div class="code-demo">
               <pre><code class="language-html">
-&lt;!-- Canvas for centering website content. --&gt;   
-&lt;flex-canvas&gt;
-  &lt;!-- Row and Column containers with gap and direction --&gt;
-  &lt;flex-box row nowrap reverse gap=&quot;20px&quot;&gt;  
-    &lt;flex-cell&gt;
-      &lt;h2&gt;Hello!&lt;/h2&gt;
-    &lt;/flex-cell&gt;
-    &lt;flex-cell&gt;
-    &lt;!--Grid setup and padding between columns/rows..--&gt;                        
-      &lt;flex-grid gap=&quot;30px&quot;&gt;
-        &lt;flex-box&gt;
-          &lt;!--Responsive cells based on a 12-column grid.--&gt;
-          &lt;flex-cell class=&quot;cell-12 cell-sm-6&quot;&gt;
-              cell 1
-          &lt;/flex-cell&gt;
-          &lt;flex-cell class=&quot;cell-12 cell-sm-6&quot;&gt;
-              cell 2
-          &lt;/flex-cell&gt;
-        &lt;/flex-box&gt;
-      &lt;/flex-grid&gt;
-    &lt;/flex-cell&gt;
-  &lt;/flex-box&gt;
-&lt;/flex-canvas&gt;</code></pre>
+&lt;!-- Main container --&gt;
+&lt;flex-canvas w=&quot;1200px&quot;&gt;
+&lt;!-- Grid layout with responsive gap --&gt;
+  &lt;flex-grid compact crop gap=&quot;50px, xs 10px, sm 20px, md 40px&quot;&gt;
+  &lt;!-- Flexbox container with responsive width --&gt;
+    &lt;flex-box center wrap dn=&quot;row, xs column&quot;&gt;
+      &lt;flex-cell w=&quot;50%, sm 100%&quot;&gt;
+      &lt;!-- Custom Style Box --&gt;           
+        &lt;s-box center bgc=&quot;red&quot; pd=&quot;20px, sm 10px&quot;&gt;
+          Box 1
+        &lt;/s-box&gt;
+      &lt;/flex-cell&gt;
+      &lt;flex-cell w=&quot;50%, sm 100%&quot;&gt;
+        &lt;s-box center bgc=&quot;green&quot; pd=&quot;20px, sm 10px&quot;&gt;
+          Box 2
+        &lt;/s-box&gt;
+      &lt;/flex-cell&gt;
+    &lt;/flex-box&gt;
+  &lt;/flex-grid&gt;
+&lt;/flex-canvas&gt;            
+          </code></pre>
             </div>
           </flex-cell>
 
         </flex-box>
       </flex-grid>
-    </flex-canvas>
-    <flex-canvas pd="4em 1em">
-      <flex-grid compact gap="40px">
-        <flex-box middle>
-          <flex-cell class="cell-12 cell-md-6">
+      <space-box size="120px, xs 40px"></space-box>
+      <flex-grid compact crop gap="40px">
+        <flex-box wrap ai="center">
+          <flex-cell w="50%, xs 100%" pd="0, xs 60px">
             <picture>
-              <source srcset="/assets/i2.webp" type="image/webp">
-              <img src="/assets/i2.webp" width="640" class="cover" height="624" alt="Flex Layout System Hero Image">
+              <source srcset="/assets/i3.png" type="image/webp">
+              <img src="/assets/i3.png" width="640" class="cover" height="624" alt="Flex Layout System Hero Image">
             </picture>
           </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
+          <flex-cell w="50%, xs 100%">
             <flex-box column gap="40px">
               <s-box lh="1">
-                <h2><s-box fz="2em">Introducing Flex Layout System:</s-box> <s-box block mbs=".5em"
+                <h2><s-box fz="2em, xs 1.8em">Introducing Flex Layout:</s-box> <s-box block mbs=".5em"
                     class="color-green">Empowering
                     Effortless Web
                     Design</s-box></h2>
               </s-box>
-              <p>Flex Layout System is a powerful library of web components designed to enhance web design
-                development.
-                It
-                provides a range of flexible components for effortless layout creation and grid implementation. The
-                primary
-                objective of Flex Layout System is to simplify the process of building responsive layouts across
-                different
-                projects and frameworks.</p>
-              <p>Key advantages of Flex Layout System include its intuitive component names, which eliminate the need
-                for
-                complex div structures. The "flex-box" serves as the container, while the "flex-cell" acts as
-                the
-                adaptable building block within the grid. This simplicity improves efficiency and promotes cleaner,
-                more
-                maintainable code.</p>
-              <p>By importing Flex Layout System just once, you can seamlessly integrate it into any project and
-                framework.
-                The library offers well-designed components with thoughtful nesting, making it easy to customize gaps,
-                grids, columns, and responsiveness. Additionally, the styles of these components are applied to the
-                host
-                element, allowing for effortless customization and overrides. Supplementary components are also
-                included,
-                providing efficient tools for rapid layout design with minimal CSS requirements.</p>
+              <p><b>Flex Layout System v2</b> is a streamlined and powerful library of web components designed to make
+                responsive web design effortless. This new version introduces significant improvements, including a
+                reduced number of components, built-in responsive behaviors, and self-contained styles, making it easier
+                than ever to create clean, maintainable layouts across various projects and frameworks.</p>
+              <p>Key features of <b>Flex Layout System v2</b> include its simplified component structure, which reduces
+                the need for complex HTML setups. </p>
+              <p>With just a single import, <b>Flex Layout System v2</b> integrates seamlessly into any project or
+                framework. Its
+                components come with built-in responsive capabilities, eliminating the need for additional media queries
+                or external CSS files. The library also includes supplementary tools for precise control over gaps,
+                grids,
+                columns, and overall layout, ensuring rapid development with minimal CSS.</p>
               <footer>
-                <cite>Sincerely, <b>Chat GPT</b></cite>
+                <cite>Sincerely, <b>Unbywyd</b></cite>
               </footer>
             </flex-box>
           </flex-cell>
 
         </flex-box>
       </flex-grid>
-    </flex-canvas>
-
-    <flex-canvas width="1300px" pd="4em 1em">
+      <space-box size="100px, xs 50px"></space-box>
       <flex-box class="s2" column gap="1em">
-        <s-box w="100%" fz="2em" block ta="center">
+        <s-box w="100%" fz="2em" block ta="center" unstyle fw="700">
           <h2 id="get-started">Get Started</h2>
-          <space-box height="1em"></space-box>
         </s-box>
+        <space-box height="1em"></space-box>
         <p>To get started with <b>Flex Layout System</b>, follow these simple steps:</p>
         <p><i class="color-yellow">Step 1</i>: <b>Install the package</b>
           Run the following command in your project to install the Flex Layout System package from npm:</p>
-        <s-box>
-          <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
-        </s-box>
-        <p>
-          If you want to use the <a href="https://www.npmjs.com/package/flex-layout-system-react" target="_blank">React
-            version</a>, run the following command:
-          <s-box>
-            <pre><code class="language-bash">npm install <b>flex-layout-system-react</b></code></pre>
-          </s-box>
-        </p>
+        <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
+
         <p><i class="color-yellow">Step 2</i>: <b>Use It!</b></p>
         <s-box>
-          <pre><code class="language-js">
-// ES/TS Project:
+          <pre><code class="language-js">// ES/TS Project:
 import "flex-layout-system";
-
-// Optional. If you want to use the responsive utilities based on CSS Media Queries, import the following:
-import "flex-layout-system/dist/css-responsive.min.css";
-
-// Optional: If you want to use the responsive utilities based on the JavaScript system using the <code>flex-media</code> component, import the following:
-import "flex-layout-system/dist/js-responsive.min.css";
 </code></pre>
         </s-box>
         <p>If yow want to use this library in your HTML file (browser), you can use the following:</p>
-        <pre><code class="language-html">
-&lt;!-- Only one of the following is required. --&gt;
-&lt;!-- If you want to use the base layout, import the following: --&gt;
-&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/browser-layout.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;!-- If you want to use the layout with utilities, import the following: --&gt;
-&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/browser.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;!-- Optional. If you want to use the responsive utilities based on CSS Media Queries, import the following: --&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/flex-layout-system/dist/css-responsive.min.css&quot;&gt;
-
-&lt;!-- Optional: If you want to use the responsive utilities based on the JavaScript system using the <code>flex-media</code> component, import the following: --&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/flex-layout-system/dist/js-responsive.min.css&quot;&gt;
-  </code></pre>
+        <pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/flex-layout-system/dist/browser.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
       </flex-box>
+      <space-box size="40px"></space-box>
       <flex-box class="s2" column gap="1em">
         <s-box w="100%" fz="2em" block ta="center">
           <h3>Angular</h3>
@@ -279,30 +235,18 @@ import "flex-layout-system/dist/js-responsive.min.css";
           <pre><code class="language-bash">npm install <b>flex-layout-system</b></code></pre>
         </s-box>
         <p>
-          Then, in your <code>angular.json</code> file, add the following:
-        </p>
-        <s-box block>
-          <pre>
-<code class="language-json">
-  "styles": [
-  "node_modules/flex-layout-system/dist/css-responsive.min.css"
-],
-</code>
-</pre>
-        </s-box>
-        <p>
           Finally, in your <code>app.module.ts</code> file, add the following:
         </p>
         <s-box block>
           <pre>
 <code class="language-ts">
-  import "flex-layout-system";
-  import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import "flex-layout-system";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-  @NgModule({
-    ...
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  })
+@NgModule({
+  ...
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
 </code>
 </pre>
         </s-box>
@@ -323,27 +267,62 @@ import "flex-layout-system/dist/js-responsive.min.css";
 
         <s-box block>
           <pre>
-<code class="language-ts">
-  "use client"; // This is required for NextJS, you need to add this line at the top of the file but not in page.ts file, you need to create a new file in the components folder and import it in the page.ts file with this line
+      <code class="language-ts">
+"use client"; // This is required for NextJS. Add this line at the top of the file, but not in page.ts file. 
+              // Instead, create a new file in the components folder and import it in the page.ts file with this line.
 
-  import "flex-layout-system/jsx.types.d"; // Import types
-  import "flex-layout-system"; // Import components
-  
-  // Just use the web components in your JSX file, for example:
+import "flex-layout-system/jsx.types.d"; // Import types
+import "flex-layout-system"; // Import components
+
+// Just use the web components in your JSX file, for example:
 &lt;flex-box jc=&quot;space-between&quot;&gt;
   &lt;span&gt;1&lt;/span&gt;
   &lt;span&gt;1&lt;/span&gt;
 &lt;/flex-box&gt;
 </code>
+      </pre>
+        </s-box>
+
+        <p>
+          Please note that this library uses Shadow DOM and is a purely client-side library, meaning it will only work
+          on the client side.
+          You can write syntax similar to regular HTML, but rendering will be handled exclusively on the client.
+        </p>
+
+        <p>
+          Additionally, you must ensure the library is imported on the client side. If you're using
+          <code>"use client"</code>,
+          Next.js will handle the import correctly. However, if you're working with a server component, it won't render!
+          You must ensure the script is loaded on the client side, either using lazy loading methods provided by Next.js
+          or by utilizing
+          <code>Script</code> from <code>next/script</code> to load the library as a polyfill for web component support
+          on the client.
+        </p>
+
+        <s-box block>
+    <pre>
+<code class="language-ts">
+import Script from "next/script";
+
+export default function MyComponent() {
+  return (
+    &lt;&gt;
+      &lt;Script src=&quot;https://unpkg.com/flex-layout-system/dist/browser.min.js&quot; strategy=&quot;lazyOnload&quot; /&gt;
+      &lt;flex-box jc=&quot;space-between&quot;&gt;
+        &lt;span&gt;1&lt;/span&gt;
+        &lt;span&gt;2&lt;/span&gt;
+      &lt;/flex-box&gt;
+    &lt;/&gt;
+  );
+}
+</code>
 </pre>
         </s-box>
       </flex-box>
 
-    </flex-canvas>
 
-    <flex-canvas width="1200px" pd="4em 1em 2em">
       <flex-box stretch column gap="20px">
-        <s-box block w="100%" ta="center" fz="2em">
+        <s-box block w="100%" ta="center" fz="2em, 1.2em xs">
           <h2 id="examples">Examples</h2>
         </s-box>
         <p>A real-life example is this very website! Simply open the DevTools and explore the working example
@@ -351,14 +330,90 @@ import "flex-layout-system/dist/js-responsive.min.css";
           different scenarios. For more detailed information and documentation, please refer to our official
           <a href="/docs">documentation</a>
         </p>
-        <space-box size="2em"></space-box>
-        <s-box block w="100%" ta="center" fz="2em">
+        <space-box size="4em, xs 2em"></space-box>
+        <s-box block w="100%" ta="center" fz="3em, sm 2em, xs 1.2em" unstyle fw="700">
+          <h2>How to Use Grid and Flexbox</h2>
+        </s-box>
+        <flex-grid gap="20px" compact>
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
+              <s-box block>
+                <pre><code class="language-html">
+&lt;!-- Use grid for accurate layout with gap --&gt;
+&lt;flex-grid gap="20px"&gt;
+  &lt;flex-box&gt;
+    &lt;flex-cell bs="50%"&gt;
+      &lt;flex-grid compact gap="50px"&gt;
+        &lt;flex-box&gt;
+          &lt;flex-cell stretch&gt;&lt;s-box bgc="red" block center&gt;1&lt;/s-box&gt;&lt;/flex-cell&gt;
+          &lt;flex-cell stretch&gt;&lt;s-box bgc="red" block center&gt;2&lt;/s-box&gt;&lt;/flex-cell&gt;
+        &lt;/flex-box&gt;
+      &lt;/flex-grid&gt;
+    &lt;/flex-cell&gt;
+    &lt;flex-cell bs="50%"&gt;
+      &lt;!-- Direct flex-box usage with gap --&gt;
+      &lt;flex-box gap="20px"&gt;
+        &lt;flex-cell stretch&gt;&lt;s-box bgc="red" block center&gt;1&lt;/s-box&gt;&lt;/flex-cell&gt;
+        &lt;flex-cell stretch&gt;&lt;s-box bgc="red" block center&gt;2&lt;/s-box&gt;&lt;/flex-cell&gt;
+      &lt;/flex-box&gt;
+    &lt;/flex-cell&gt;
+  &lt;/flex-box&gt;
+&lt;/flex-grid&gt;
+
+&lt;!-- Use flex-box directly when grid is not needed --&gt;
+&lt;flex-box wrap gap="20px"&gt;
+  &lt;s-box bgc="blue" block&gt;Flexible Item 1&lt;/s-box&gt;
+  &lt;span&gt;Flexible Item 2&lt;/span&gt;
+&lt;/flex-box&gt;
+</code></pre>
+              </s-box>
+            </flex-cell>
+            <flex-cell w="50%, xs 100%">
+              <flex-box column gap="20px">
+                <p>
+                  When building layouts, it's recommended to use `flex-grid` with the `gap` attribute to ensure accurate
+                  spacing between grid cells. This approach is preferable because the grid gap maintains logical spacing
+                  and doesn't interfere with percentage-based widths.
+                </p>
+                <p>
+                  In contrast, using `gap` directly within `flex-box` can lead to unexpected spacing issues when dealing
+                  with percentage-based layouts, as it relies on padding rather than pure gaps.
+                </p>
+                <p>
+                  Inside a grid, it's best to use `flex-box` for internal layout control, particularly when nesting
+                  grids. For deeper grids, it's advisable to place another `flex-grid` inside a `flex-cell`, although a
+                  direct `flex-box` is also an option depending on your layout logic.
+                </p>
+                <p>
+                  It's crucial to use `flex-cell` within `flex-box` when working with grids, as the grid gap feature
+                  relies on these cells. Skipping `flex-cell` will prevent the grid's gap from functioning correctly.
+                </p>
+                <p>
+                  However, if you just need a flexible container without the structure of a grid, you can use `flex-box`
+                  directly. It behaves as a standard flex container, allowing you to nest any elements inside it, not
+                  just `flex-cell`.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
+              </flex-box>
+            </flex-cell>
+          </flex-box>
+        </flex-grid>
+
+        <space-box size="4em, xs 2em"></space-box>
+        <s-box block w="100%" ta="center, xs start" fz="2em, xs 1.5em">
           <h2>Components</h2>
         </s-box>
-        <h3><s-box fz="1.6em">Canvas</s-box></h3>
+        <s-box block fz="1.6em" unstyle fw="700">
+          <h3>Canvas</h3>
+        </s-box>
+
         <flex-grid gap="20px" compact>
-          <flex-box row middle>
-            <flex-cell class="cell-12 cell-md-6">
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
               <s-box block>
                 <pre><code class="language-html">
 &lt;flex-canvas&gt;
@@ -366,7 +421,7 @@ import "flex-layout-system/dist/js-responsive.min.css";
 &lt;/flex-canvas&gt;
 
 &lt;!-- You can set the custom width and padding --&gt;
-&lt;flex-canvas width=&quot;1200px&quot; pd=&quot;2em&quot;&gt;
+&lt;flex-canvas w=&quot;1200px&quot; pd=&quot;2em&quot;&gt;
 ...
 &lt;/flex-canvas&gt;
 
@@ -377,7 +432,7 @@ import "flex-layout-system/dist/js-responsive.min.css";
 </code></pre>
               </s-box>
             </flex-cell>
-            <flex-cell class="cell-12 cell-md-6">
+            <flex-cell w="50%, xs 100%">
               <flex-box column gap="20px">
                 <p>
                   The FlexCanvas component is a simple container that limits the width of its content and centers it
@@ -399,20 +454,77 @@ import "flex-layout-system/dist/js-responsive.min.css";
                   various
                   use
                   cases, whether you're working on a small website or a large-scale application.</p>
-
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#flexcanvas" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
               </flex-box>
             </flex-cell>
           </flex-box>
         </flex-grid>
-
-
       </flex-box>
-      <space-box height="4em"></space-box>
+      <space-box size="4em"></space-box>
+      <flex-box stretch column gap="20px">
+        <h3><s-box fz="1.6em">Grid</s-box></h3>
+        <flex-grid gap="20px" compact>
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
+              <s-box block>
+                <pre><code class="language-html">
+&lt;flex-grid gap="20px"&gt;
+  ...
+&lt;/flex-grid&gt;
+
+&lt;!-- You can use compact to remove padding --&gt;
+&lt;flex-grid compact&gt;
+  ...
+&lt;/flex-grid&gt;
+
+&lt;!-- Set responsive gap values --&gt;
+&lt;flex-grid gap=&quot;50px, xs 10px&quot;&gt;
+  ...
+&lt;/flex-grid&gt;
+
+&lt;!-- Enable crop to hide overflow content --&gt;
+&lt;flex-grid crop&gt;
+  ...
+&lt;/flex-grid&gt;
+</code></pre>
+              </s-box>
+            </flex-cell>
+            <flex-cell w="50%, xs 100%">
+              <flex-box column gap="20px">
+                <p>
+                  FlexGrid: The main container for creating grid-based layouts.
+                </p>
+                <p>
+                  The FlexGrid component allows you to organize your layout using a grid system. You can customize the
+                  gap
+                  between grid items and control overflow behavior with the `crop` attribute.
+                </p>
+                <p>
+                  With FlexGrid, you can set responsive gap values, apply compact mode to remove padding, and ensure
+                  your
+                  content stays neatly within the grid.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#flexgrid" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
+              </flex-box>
+            </flex-cell>
+          </flex-box>
+        </flex-grid>
+      </flex-box>
+
+      <space-box size="4em"></space-box>
       <flex-box stretch column gap="20px">
         <h3><s-box fz="1.6em">Box</s-box></h3>
         <flex-grid gap="20px" compact>
-          <flex-box row middle>
-            <flex-cell class="cell-12 cell-md-6">
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
               <s-box block>
                 <pre><code class="language-html">
 &lt;flex-box center&gt;
@@ -429,26 +541,19 @@ import "flex-layout-system/dist/js-responsive.min.css";
 ...
 &lt;/flex-box&gt;
 
-&lt;!-- You can set the flex wrap --&gt;
-&lt;flex-box nowrap&gt;
+&lt;!-- You can set the responsive flex direction and wrap --&gt;
+&lt;flex-box wrap="nowrap, xs wrap" dn=&quot;row, xs column-reverse&quot;&gt;
 ...
 &lt;/flex-box&gt;
 
 &lt;!-- and other useful properties --&gt;
-&lt;flex-box fit middle spread [ac=&quot;end&quot;]&gt;
+&lt;flex-box ai=&quot;center&quot;&gt;
 ...
 &lt;/flex-box&gt;
-
-&lt;!-- When used inside a canvas --&gt;
-&lt;flex-canvas&gt;
-  &lt;flex-box&gt;
-  ...
-  &lt;/flex-box&gt;
-&lt;/flex-canvas&gt;
 </code></pre>
               </s-box>
             </flex-cell>
-            <flex-cell class="cell-12 cell-md-6">
+            <flex-cell w="50%, xs 100%">
               <flex-box column gap="20px">
                 <p>
                   FlexBox: A versatile component for creating row or column layouts.
@@ -468,7 +573,7 @@ import "flex-layout-system/dist/js-responsive.min.css";
                   spacing, and order of its child elements. It provides the flexibility required to create complex and
                   dynamic layouts while maintaining a clean and structured design.</p>
                 <s-box block pbs="1em">
-                  <a href="#" class="btn">
+                  <a href="/docs/components/#flexbox" class="btn">
                     <span>Documentation</span>
                   </a>
                 </s-box>
@@ -479,423 +584,288 @@ import "flex-layout-system/dist/js-responsive.min.css";
 
 
       </flex-box>
-      <space-box height="4em"></space-box>
+      <space-box size="4em"></space-box>
       <flex-box stretch column gap="20px">
         <h3><s-box fz="1.6em">Cell</s-box></h3>
         <flex-grid gap="20px" compact>
-          <flex-box row middle>
-            <flex-cell class="cell-12 cell-md-6">
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
               <s-box block>
                 <pre><code class="language-html">
-&lt;flex-box&gt;
-  &lt;flex-cell&gt;
+&lt;flex-cell w="50%, xs 100%"&gt;
   ...
-  &lt;/flex-cell&gt;
-  &lt;flex-cell stretch&gt;
-  ...
-  &lt;/flex-cell&gt;
-&lt;/flex-box&gt;
+&lt;/flex-cell&gt;
 
-&lt;flex-box&gt;
-  &lt;flex-cell width="20%"&gt;
+&lt;!-- Use 'fill' to make the cell expand --&gt;
+&lt;flex-cell fill&gt;
   ...
-  &lt;/flex-cell&gt;
-  &lt;flex-cell grow="1"&gt;
+&lt;/flex-cell&gt;
+
+&lt;!-- Set responsive width and padding --&gt;
+&lt;flex-cell w="75%" pd="10px, xs 5px"&gt;
   ...
-  &lt;/flex-cell&gt;
-  &lt;flex-cell order="2" fill&gt;
+&lt;/flex-cell&gt;
+
+&lt;!-- Align content to the center --&gt;
+&lt;flex-cell center&gt;
   ...
-  &lt;/flex-cell&gt;
-  &lt;flex-cell order="1" class=&quot;cell-6&quot;&gt;
-  ...
-  &lt;/flex-cell&gt;
-&lt;/flex-box&gt;
+&lt;/flex-cell&gt;
 </code></pre>
               </s-box>
             </flex-cell>
-            <flex-cell class="cell-12 cell-md-6">
-              <flex-box column gap="20px">
-                <p>FlexCell is a component designed to be used within the FlexBox. It acts as a building block for
-                  creating grid layouts. The main purpose of FlexCell is to provide flexible and customizable cells
-                  within the grid structure.</p>
-                <p>FlexCell offers various configuration options, allowing you to adjust the sizing, alignment, and
-                  positioning of the content within each cell. It leverages flex properties to enable dynamic and
-                  responsive layouts, adapting to different screen sizes and devices.</p>
-                <p>While not required for all use cases, integrating FlexCell into your FlexBox provides
-                  additional versatility and precision when working with grid layouts. It empowers you to achieve
-                  fine-grained control over the arrangement of content within the grid, ensuring optimal visual
-                  presentation and responsive behavior.</p>
-                <p>When combined with the FlexGrid component, FlexCell becomes an integral part of building responsive
-                  and dynamic grid systems. It enables you to create adaptable layouts that automatically adjust based
-                  on different screen sizes and orientations.</p>
-              </flex-box>
-            </flex-cell>
-          </flex-box>
-        </flex-grid>
-
-
-      </flex-box>
-      <space-box height="4em"></space-box>
-      <flex-box stretch column gap="20px">
-        <h3><s-box fz="1.6em">Grid</s-box></h3>
-        <flex-grid gap="20px" compact>
-          <flex-box row middle>
-            <flex-cell class="cell-12 cell-md-6">
-              <s-box block>
-                <pre><code class="language-html">
-&lt;flex-grid gap="20px"&gt;
-  &lt;flex-box&gt;
-    &lt;flex-cell class="cell-12 cell-sm-6"&gt;
-    ...
-    &lt;/flex-cell&gt;
-    &lt;flex-cell class="cell-12 cell-sm-6"&gt;
-    ...
-    &lt;/flex-cell&gt;
-  &lt;/flex-box&gt;
-&lt;/flex-grid&gt;
-
-</code></pre>
-              </s-box>
-            </flex-cell>
-            <flex-cell class="cell-12 cell-md-6">
+            <flex-cell w="50%, xs 100%">
               <flex-box column gap="20px">
                 <p>
-                  The Grid component is designed to facilitate grid system configuration. While using the flex gap
-                  property with the flex-box can be convenient, it may not always be ideal. Some browsers do not
-                  support flex gap, and it can also present challenges when precise column count is required.
+                  FlexCell: The building blocks within the FlexBox.
                 </p>
-                <p>To address these limitations, the Grid component provides a solution for setting the gaps or margins
-                  between the flex-box and flex-cell. It allows you to achieve accurate column alignment and
-                  spacing within the grid layout.</p>
-                <p>By utilizing the Grid component, you can easily customize and fine-tune the gaps between cells,
-                  ensuring precise control over the layout. This is particularly useful when aiming for consistent
-                  spacing or when working with designs that require specific column counts.</p>
-                <p>The Grid component enhances the flexibility and versatility of the FlexBox and FlexCell by
-                  providing an additional layer of control over margins and gaps. It enables you to create visually
-                  appealing and well-structured grid layouts that cater to specific design requirements.</p>
-
+                <p>
+                  FlexCell allows you to create flexible and responsive grid cells with a wide range of customization
+                  options.
+                </p>
+                <p>
+                  You can control the size, alignment, order, and more, making it easy to create complex and adaptive
+                  layouts.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#flexcell" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
               </flex-box>
             </flex-cell>
           </flex-box>
         </flex-grid>
       </flex-box>
-
-      <space-box height="4em"></space-box>
+      <space-box size="4em"></space-box>
       <flex-box stretch column gap="20px">
-        <h3><s-box fz="1.6em">Media</s-box></h3>
-        <p>
-          Additional Component - Tool
-        </p>
+        <h3><s-box fz="1.6em">DisplayBox</s-box></h3>
         <flex-grid gap="20px" compact>
-          <flex-box row middle>
-            <flex-cell class="cell-12 cell-md-6">
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
               <s-box block>
                 <pre><code class="language-html">
-&lt;flex-media breakpoints="780,1200,1400,1600"&gt;
-  &lt;flex-grid gap="20px"&gt;
-    &lt;flex-box&gt;
-      &lt;flex-cell class="cell-12 cell-sm-6"&gt;
-      ...
-      &lt;/flex-cell&gt;
-      &lt;flex-cell class="cell-12 cell-sm-6"&gt;
-      ...
-      &lt;/flex-cell&gt;
-    &lt;/flex-box&gt;
-  &lt;/flex-grid&gt;
-&lt;/flex-media&gt;
+&lt;d-box d="block, xs none"&gt;
+  ...
+&lt;/d-box&gt;
+
+&lt;!-- Conditionally render based on media query --&gt;
+&lt;d-box media="(min-width: 600px)"&gt;
+  ...
+&lt;/d-box&gt;
+
+&lt;!-- Use the 'd' attribute for responsive display --&gt;
+&lt;d-box d="flex, md grid"&gt;
+  ...
+&lt;/d-box&gt;
 </code></pre>
               </s-box>
             </flex-cell>
-            <flex-cell class="cell-12 cell-md-6">
+            <flex-cell w="50%, xs 100%">
               <flex-box column gap="20px">
-                <p>The FlexMedia component serves as an alternative to media queries and provides enhanced functionality
-                  for responsive design. It supports breakpoints from "xs", "sm", "md", "lg", "xl" to "xxl", allowing
-                  for precise control over layout changes at different screen sizes.</p>
-                <p>What sets the FlexMedia component apart is its ability to track changes not only in the document
-                  window but also relative to itself (the container). This feature is particularly useful in projects
-                  where screen divisions or resizing, such as a sliding map on a booking website, are essential.</p>
-                <p>The FlexMedia component is included in the <b>full package</b>, <code class="h">full.min.js</code>,
-                  and requires
-                  the
-                  corresponding <code class="h">js-responsive.min.css</code> styles. It is not compatible with
-                  css-responsive
-                  styles.</p>
+                <p>
+                  DisplayBox: A versatile component for conditional rendering.
+                </p>
+                <p>
+                  The DisplayBox component allows you to control the rendering of content based on a media query
+                  (`media`
+                  attribute) or simply through responsive display settings using the `d` attribute.
+                </p>
+                <p>
+                  You can use DisplayBox to dynamically show or hide content depending on screen size, device type, or
+                  any
+                  other conditions supported by `matchMedia`.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#displaybox" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
               </flex-box>
             </flex-cell>
           </flex-box>
         </flex-grid>
       </flex-box>
-      <space-box height="4em"></space-box>
-      <h3><s-box fz="1.6em">Other Utility Components</s-box></h3>
+      <space-box size="4em"></space-box>
+      <flex-box stretch column gap="20px">
+        <h3><s-box fz="1.6em">SpaceBox</s-box></h3>
+        <flex-grid gap="20px" compact>
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
+              <s-box block>
+                <pre><code class="language-html">
+&lt;space-box size="20px"&gt;&lt;/space-box&gt;
 
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;stacked-box&gt;
-&lt;stacked-cell xb="0" yb="0"&gt;
-  ...
-&lt;/stacked-cell&gt;
-  
-&lt;stacked-cell z="100" stretch overlay&gt;
-...
-&lt;/stacked-cell&gt;
-&lt;/stacked-box&gt; 
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">StackedBox / StackedCell</s-box>
-              </h4>
-              <p>There are two additional components available: StackedBox and StackedCell. These components are
-                designed to facilitate the creation of collages using absolute positioning. They offer a convenient
-                way to arrange and position elements within a layout using CSS logical properties, such as 'inset'.
-              </p>
-              <p> StackedBox provides a container for arranging stacked cells, allowing you to create visually
-                appealing collages with ease. StackedCell, on the other hand, represents individual cells within the
-                collage and offers features like z-index control and overlay options.</p>
-              <p>
-                With StackedBox and StackedCell, you can easily achieve complex collage layouts by precisely
-                controlling the position, order, and overlapping of elements. By utilizing CSS logical properties and
-                absolute positioning, you have the flexibility to create captivating designs for various scenarios.
-              </p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
+&lt;!-- Responsive size for spacing --&gt;
+&lt;space-box size="40px, xs 10px"&gt;&lt;/space-box&gt;
 
+&lt;!-- Full width spacing --&gt;
+&lt;space-box wf&gt;&lt;/space-box&gt;
 
-      <space-box height="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;fit-box cover fill round&gt;
-&lt;img src="https://picsum.photos/200/200" width="200" alt=""&gt;  
-&lt;/fit-box&gt;  
-
-&lt;flex-box stretch fill&gt;
-&lt;flex-cell&gt;
-    &lt;s-box block h="100px"&gt;&lt;/s-box&gt;
-&lt;/flex-cell&gt;
-&lt;flex-cell&gt;
-  &lt;fit-box stretch&gt;
-    &lt;div class=&quot;box&quot;&gt;box&lt;/div&gt;
-  &lt;/fit-box&gt;
-&lt;/flex-cell&gt;
-&lt;/flex-box&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">FitBox</s-box>
-              </h4>
-              <p>FitBox is a component designed for content filling purposes. It is used when there is a need to
-                stretch a block to occupy the entire width and height of its container or to fit a child element
-                within the container.</p>
-              <p>When applied to a block, FitBox ensures that it expands to cover the full width and height of
-                its container, creating a visually immersive experience. This can be particularly useful when creating
-                full-screen sections or hero banners that span the entire viewport.
-              </p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box height="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;a-ratio ratio=&quot;4/3&quot;&gt;
-  &lt;img src=&quot;example.jpg&quot; alt=&quot;Example Image&quot; /&gt;
-&lt;/a-ratio&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">A<del>spect</del>Ratio</s-box>
-              </h4>
-              <p>The AspectRatio component maintains element proportions regardless of container or screen size. It
-                ensures consistent aspect ratios for media elements, such as images or videos, resulting in visually
-                appealing layouts.</p>
-              <p>By applying the AspectRatio component to an element, you can define the desired aspect ratio, such as
-                16:9 or 4:3. The component dynamically adjusts the element's width and height to maintain the specified
-                ratio, preserving the visual integrity of the content.</p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box height="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;flex-box&gt;
-  &lt;flex-cell&gt;
-    ...
-  &lt;/flex-cell&gt;
-  &lt;space-box size=&quot;4em&quot;&gt;&lt;/space-box&gt;
-  &lt;flex-cell&gt;
-    ...
-  &lt;/flex-cell&gt;
-&lt;/flex-box&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">SpaceBox</s-box>
-              </h4>
-              <p>The SpaceBox component is a versatile tool that allows for flexible spacing and positioning of content
-                within a layout. It provides fine-grained control over padding and margin properties, enabling precise
-                adjustments to the spacing around and inside the container.</p>
-              <p>The SpaceBox component is particularly useful when you need to add spacing between rows or columns in a
-                flex system, such as a flex container or grid layout. It allows you to create consistent and adjustable
-                gaps between elements, improving the overall layout and visual structure.</p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box height="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-
-            <s-box block>
-              <pre><code class="language-html">
-&lt;s-box fz=&quot;3em&quot; fb&gt;
-  I am a StyleBox with a font size of 2em.
-  &lt;span&gt;
-    I am a child element with a font size of base font size.
-  &lt;/span&gt;
+&lt;!-- Stretch to fill available space --&gt;
+&lt;space-box stretch&gt;&lt;/space-box&gt;
+</code></pre>
+              </s-box>
+            </flex-cell>
+            <flex-cell w="50%, xs 100%">
+              <flex-box column gap="20px">
+                <p>
+                  SpaceBox: The simplest component for creating responsive spacing.
+                </p>
+                <p>
+                  The SpaceBox component provides flexible and responsive spacing within layouts. You can easily adjust
+                  its size or make it stretch to fill available space.
+                </p>
+                <p>
+                  With the `size` attribute, you can define a specific size for the space, and even make it responsive.
+                  Use `wf` or `hf` for full width or height, and `stretch` to expand and fill available space.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#spacebox" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
+              </flex-box>
+            </flex-cell>
+          </flex-box>
+        </flex-grid>
+      </flex-box>
+      <space-box size="4em"></space-box>
+      <flex-box stretch column gap="20px">
+        <h3><s-box fz="1.6em">StyleBox</s-box></h3>
+        <flex-grid gap="20px" compact>
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
+              <s-box block>
+                <pre><code class="language-html">
+&lt;s-box w="100%" h="300px" bgc="lightblue" ta="center" pd="20px"&gt;
+  Content centered with padding
 &lt;/s-box&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">S<del>tyle</del>Box</s-box>
-              </h4>
-              <p>Introducing StyleBox, a powerful tool designed to streamline your styling workflow and accelerate web
-                development. With StyleBox, you can effortlessly customize the appearance of your elements without the
-                need for extensive external style sheets.
-              </p>
-              <p>StyleBox offers a unique capability to apply styles exclusively to its child elements, while preserving
-                the internal styles of those elements. With this feature, you can precisely control the appearance of
-                specific components without affecting their nested elements.</p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box height="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
 
-            <s-box block>
-              <pre><code class="language-html">
-&lt;flex-box column&gt;
-  &lt;flex-cell&gt;...&lt;/flex-cell&gt;
-  &lt;flex-divider dark mg=&quot;2em&quot; width=&quot;3px&quot; stretch&gt;&lt;/flex-divider&gt;
-  &lt;flex-cell&gt;...&lt;/flex-cell&gt;
-&lt;/flex-box&gt;
+&lt;!-- Responsive padding and margin using logical properties --&gt;
+&lt;s-box pd="20px, sm 10px" mg="10px, sm 5px"&gt;
+  Responsive padding and margin
+&lt;/s-box&gt;
 
-&lt;flex-box row&gt;
-  &lt;flex-cell&gt;...&lt;/flex-cell&gt;
-  &lt;flex-divider dark mg=&quot;2em&quot; width=&quot;3px&quot; stretch&gt;&lt;/flex-divider&gt;
-  &lt;flex-cell&gt;...&lt;/flex-cell&gt;
-&lt;/flex-box&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">FlexDivider</s-box>
-              </h4>
-              <p>FlexDivider is a versatile component designed for effortless content separation within layouts. It
-                provides a simple yet effective way to create divisions between sections or columns, adapting seamlessly
-                to different orientations and color themes.</p>
-            </flex-box>
-          </flex-cell>
+&lt;!-- Center content and apply circular shape --&gt;
+&lt;s-box center round w="100px" h="100px" bgc="red"&gt;
+  Circle
+&lt;/s-box&gt;
 
-        </flex-box>
-      </flex-grid>
+&lt;!-- Use sr-only for screen readers only content --&gt;
+&lt;s-box sr-only&gt;
+  Screen reader only content
+&lt;/s-box&gt;
+
+&lt;!-- Apply object-fit to images or videos --&gt;
+&lt;s-box object-fit="cover" fit&gt;
+  &lt;img src="image.jpg" alt="Cover Image"&gt;
+&lt;/s-box&gt;
+</code></pre>
+              </s-box>
+            </flex-cell>
+            <flex-cell w="50%, xs 100%">
+              <flex-box column gap="20px">
+                <p>
+                  StyleBox: A highly customizable component for styling and layout control.
+                </p>
+                <p>
+                  The `StyleBox` component supports a wide range of CSS properties, making it ideal for creating
+                  responsive layouts. It includes support for logical properties like padding and margin, ensuring LTR
+                  and
+                  RTL compatibility.
+                </p>
+                <p>
+                  With `StyleBox`, you can apply styles like background color, padding, margin, and more directly within
+                  your HTML. It also supports responsive styles through attributes like `pd`, `mg`, and `w`, making it
+                  easier to adapt to different screen sizes.
+                </p>
+                <p>
+                  Additional features include options for centering content, creating circular shapes, and hiding
+                  content
+                  visually but keeping it accessible for screen readers with the `sr-only` attribute. The `object-fit`
+                  property allows you to control how images and videos fit within their container.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs/components/#stylebox" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
+              </flex-box>
+            </flex-cell>
+          </flex-box>
+        </flex-grid>
+      </flex-box>
+
       <space-box size="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;sr-only&gt;
-Invisible to the naked eye, but not to screen readers.
-&lt;/sr-only&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">ScreenReaderOnly</s-box>
-              </h4>
-              <p>The sr-only component is designed to improve web accessibility by hiding information visually while
-                keeping it available for assistive technologies like screen readers. This means it can be used to
-                provide additional context or detailed descriptions without cluttering the visual design.
-              </p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box size="4em"></space-box>
-      <flex-grid gap="20px" compact>
-        <flex-box row middle>
-          <flex-cell class="cell-12 cell-md-6">
-            <s-box block>
-              <pre><code class="language-html">
-&lt;ltr-only&gt;
-+97205000000
-&lt;/ltr-only&gt;
-              </code></pre>
-            </s-box>
-          </flex-cell>
-          <flex-cell class="cell-12 cell-md-6">
-            <flex-box column gap="20px">
-              <h4>
-                <s-box fz="1.4em">LtrOnly</s-box>
-              </h4>
-              <p>
-                The LtrOnly component is designed to ensure the correct display of specific text elements such as phone
-                numbers, regardless of the text direction settings of the web page. This is particularly useful in
-                multilingual interfaces where different text directions may be used.
-              </p>
-            </flex-box>
-          </flex-cell>
-        </flex-box>
-      </flex-grid>
-      <space-box size="4em"></space-box>
+      <s-box block ta="center" fz="2em" unstyle>
+        <h2 class="no-mg">Responsive Features</h2>
+      </s-box>
+      <space-box size="2em"></space-box>
+      <flex-box stretch column gap="20px">
+        <flex-grid gap="20px" compact>
+          <flex-box wrap ai="center">
+            <flex-cell w="50%, xs 100%">
+              <s-box block>
+                <pre><code class="language-html">
+&lt;s-box ta="center, sm start" d="block, xs none"&gt;
+  Content centered with padding
+&lt;/s-box&gt;
+
+&lt;!-- Responsive padding and margin using logical properties --&gt;
+&lt;s-box pd="20px, sm 10px" mg="10px, sm 5px"&gt;
+  Responsive padding and margin
+&lt;/s-box&gt;
+
+&lt;!-- Center content and apply circular shape --&gt;
+&lt;s-box center round w="100px, xs 50px" h="100px, xs 50px" bgc="red"&gt;
+  Circle
+&lt;/s-box&gt;
+</code></pre>
+              </s-box>
+            </flex-cell>
+            <flex-cell w="50%, xs 100%">
+              <flex-box column gap="20px">
+                <p>
+                  Responsive Features: Flex Layout System provides robust tools for creating layouts that adapt to any
+                  screen size.
+                </p>
+                <p>
+                  The system supports a range of predefined breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, and `xxl`, which
+                  correspond to common screen sizes. You can define responsive styles for properties like padding,
+                  margin,
+                  width, height, and more using these breakpoints.
+                </p>
+                <p>
+                  For example, the `pd` (padding) and `mg` (margin) attributes allow you to specify different values for
+                  different breakpoints, ensuring that your layout looks great on any device.
+                </p>
+                <p>
+                  Additionally, you can customize media sizes globally by setting the `DEFAULT_MEDIA_SIZES` in your
+                  JavaScript code. This flexibility allows you to fine-tune your design to meet specific project
+                  requirements.
+                </p>
+                <s-box block pbs="1em">
+                  <a href="/docs" class="btn">
+                    <span>Documentation</span>
+                  </a>
+                </s-box>
+              </flex-box>
+            </flex-cell>
+          </flex-box>
+        </flex-grid>
+      </flex-box>
+      <space-box size="6em"></space-box>
       <footer>
         <f-divider dark mg="2em"></f-divider>
         <s-box block ta="center">
           <p>
-            &copy; 2023 Flex Layout System. Developed by <a href="https://unbywyd.com" target="_blank">Unbywyd</a>.
+            &copy; 2023-2024 Flex Layout System. Developed by <a href="https://unbywyd.com" target="_blank">Unbywyd</a>.
             All rights reserved.
           </p>
         </s-box>
       </footer>
     </flex-canvas>
-  </flex-media>
+  </div>
 </body>
 
 </html>

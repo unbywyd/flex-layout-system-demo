@@ -1,151 +1,284 @@
 # Introducing Flex Layout System: Empowering Effortless Web Design
 
-Flex Layout System is a powerful library of web components designed to enhance web design development. It provides a range of flexible components for effortless layout creation and grid implementation. The primary objective of Flex Layout System is to simplify the process of building responsive layouts across different projects and frameworks.
+<b>Flex Layout System v2</b> is a streamlined and powerful library of web components designed to make
+responsive web design effortless. This new version introduces significant improvements, including a
+reduced number of components, built-in responsive behaviors, and self-contained styles, making it easier
+than ever to create clean, maintainable layouts across various projects and frameworks.
 
-Key advantages of Flex Layout System include its intuitive component names, which eliminate the need for complex div structures. The "flex-box" serves as the container, while the "flex-cell" acts as the adaptable building block within the grid. This simplicity improves efficiency and promotes cleaner, more maintainable code.
+Key features of <b>Flex Layout System v2</b> include its simplified component structure, which reduces
+the need for complex HTML setups.
 
-By importing Flex Layout System just once, you can seamlessly integrate it into any project and framework. The library offers well-designed components with thoughtful nesting, making it easy to customize gaps, grids, columns, and responsiveness. Additionally, the styles of these components are applied to the host element, allowing for effortless customization and overrides. Supplementary components are also included, providing efficient tools for rapid layout design with minimal CSS requirements.
+With just a single import, <b>Flex Layout System v2</b> integrates seamlessly into any project or
+framework. Its components come with built-in responsive capabilities, eliminating the need for additional media queries
+or external CSS files. The library also includes supplementary tools for precise control over gaps,
+grids, columns, and overall layout, ensuring rapid development with minimal CSS.
 
 # Components
 
 ## FlexCanvas
 
-FlexCanvas is a web component that provides a flexible canvas for layout design. It allows you to easily customize the display, margin, padding, and maximum width of the canvas.
+The `FlexCanvas` component is a versatile container that provides a customizable canvas for your layout. It allows you to control the maximum width, display, margin, padding, and overflow behavior of the container. The `FlexCanvas` is ideal for centering content and ensuring consistent layout structure across different screen sizes.
 
 ### Usage
 
-To use the `FlexCanvas` component in your HTML project, include the following code:
+To use the `FlexCanvas` component in your HTML, include the following code:
+
+<code>html</code>
+
+```html
+<flex-canvas w="1200px" pd="20px"></flex-canvas>
+```
+
+### Props
+
+The following properties are available for the `FlexCanvas` component:
+
+| Name   | Type    | Default | Description                                  |
+| ------ | ------- | ------- | -------------------------------------------- |
+| `w`    | string  | 1400px  | Sets the maximum width of the canvas.        |
+| `d`    | string  | block   | Sets the display mode of the canvas.         |
+| `mg`   | string  | 0 auto  | Sets the margin of the canvas.               |
+| `pd`   | string  | 0       | Sets the padding inside the canvas.          |
+| `crop` | boolean | false   | Hides any overflow content if set to `true`. |
+
+### Styling
+
+The `FlexCanvas` component supports the following CSS variables for custom styling:
+
+| Variable    | Description                              |
+| ----------- | ---------------------------------------- |
+| `--f-cs-mg` | Margin value of the host element.        |
+| `--f-cs-pd` | Padding value of the host element.       |
+| `--f-cs-db` | Display value of the host element.       |
+| `--f-cs-mw` | Maximum width value of the host element. |
+
+These variables can be adjusted to customize the appearance and behavior of the `FlexCanvas`.
+
+### Examples
+
+Here are some examples of how to use the `FlexCanvas` component:
+
+1. **Basic Usage:**
 
 ```html
 <flex-canvas></flex-canvas>
 ```
 
+This will create a `FlexCanvas` with default settings.
+
+2. **Custom Width and Padding:**
+
+```html
+<flex-canvas w="1200px" pd="20px"></flex-canvas>
+```
+
+This sets the maximum width of the canvas to 1200px and applies a padding of 20px.
+
+3. **Cropped Canvas:**
+
+```html
+<flex-canvas crop w="1000px"></flex-canvas>
+```
+
+This example sets a maximum width of 1000px and hides any overflow content using the `crop` property.
+
+The `FlexCanvas` component is a powerful tool for creating structured and centered layouts, ensuring that your content remains visually consistent across different devices.
+
+## FlexGrid
+
+The `FlexGrid` component is a powerful layout tool designed to create flexible, grid-based structures in your web projects. It allows you to manage spacing, alignment, and overflow behavior with ease. The `FlexGrid` component is typically used as a container for other layout components like `FlexBox` and `FlexCell`.
+
+### Usage
+
+To use the `FlexGrid` component in your HTML, include the following code:
+
+<code>html</code>
+
+```html
+<flex-grid gap="20px">
+  <!-- Your grid content here -->
+</flex-grid>
+```
+
 ### Props
 
-The following table lists the available props for the `FlexCanvas` component:
+The following properties are available for the `FlexGrid` component:
 
-| Name  | Type   | Default | Description                |
-| ----- | ------ | ------- | -------------------------- |
-| width | string | null    | The width of the canvas.   |
-| mg    | string | null    | The margin of the canvas.  |
-| pd    | string | null    | The padding of the canvas. |
+| Name       | Type    | Default | Description                                               |
+| ---------- | ------- | ------- | --------------------------------------------------------- |
+| `gap`      | string  | 0       | Sets the spacing between grid items.                      |
+| `d`        | string  | block   | Defines the display type of the grid container.           |
+| `crop`     | boolean | false   | If `true`, hides any overflowing content within the grid. |
+| `compact`  | boolean | false   | If `true`, removes the padding inside the grid container. |
+| `centered` | boolean | false   | If `true`, centers the grid container within its parent.  |
 
-### Styling props
+### Styling
 
-The `FlexCanvas` component supports the following CSS variables for custom styling:
+The `FlexGrid` component can be customized using CSS variables, providing control over its appearance and behavior:
 
-| Name      | Description                              |
-| --------- | ---------------------------------------- |
-| --f-cs-db | Display value of the host element.       |
-| --f-cs-mg | Margin value of the host element.        |
-| --f-cs-mw | Maximum width value of the host element. |
-| --f-cs-pd | Padding value of the host element.       |
+| Variable    | Description                                                      |
+| ----------- | ---------------------------------------------------------------- |
+| `--f-g-gap` | Defines the gap between grid items. Defaults to `0`.             |
+| `--f-g-pd`  | Sets the padding for grid items, applied to each slot element.   |
+| `display`   | Controls the display property of the grid (e.g., block, inline). |
+
+### Features
+
+- **Gap Management**: The `gap` attribute allows you to define the spacing between grid items, which can be responsive. The gap value is applied consistently across all grid items, ensuring a uniform layout.
+- **Compact Mode**: Enabling `compact` mode removes the padding inside the grid, which is useful for tightly packed layouts where you want to minimize space between items.
+
+- **Overflow Control**: The `crop` attribute helps manage overflow by hiding any content that extends beyond the grid's boundaries, ensuring a clean and contained layout.
+
+- **Centering**: With the `centered` attribute, you can easily center the grid container within its parent element, which is particularly useful for aligning content on a page.
+
+### Responsive Design
+
+The `FlexGrid` component supports responsive design through its `gap` attribute, which can accept different values for various breakpoints. This allows you to fine-tune the spacing between grid items based on the screen size.
 
 ### Examples
 
-Here are a few examples of using the `FlexCanvas` component:
+1. **Basic Grid Layout:**
 
 ```html
-<flex-canvas width="1200px"></flex-canvas>
+<flex-grid gap="20px">
+  <flex-box>
+    <!-- Grid items here -->
+  </flex-box>
+</flex-grid>
 ```
+
+This example sets up a basic grid layout with a 20px gap between items.
+
+2. **Responsive Gap Values:**
+
+```html
+<flex-grid gap="40px, xs 20px, sm 30px">
+  <flex-box>
+    <!-- Responsive grid items -->
+  </flex-box>
+</flex-grid>
+```
+
+In this example, the gap adjusts based on the screen size, with 40px on larger screens, 30px on small screens, and 20px on extra small screens.
+
+3. **Compact and Cropped Grid:**
+
+```html
+<flex-grid compact crop>
+  <flex-box>
+    <!-- Compact grid items with overflow hidden -->
+  </flex-box>
+</flex-grid>
+```
+
+This setup removes the padding inside the grid and hides any overflowing content, creating a tight, clean layout.
+
+The `FlexGrid` component is an essential tool for building structured, responsive layouts that require precise control over spacing and alignment. Its ability to manage gaps, handle overflow, and support responsive design makes it a versatile component in the Flex Layout System.
 
 ## FlexBox
 
-The `FlexBox` component is used as a flexible container that provides layout capabilities for your content. It allows you to control the direction, wrapping behavior, alignment, and spacing of the flex items within the container.
+The `FlexBox` component is a flexible container designed to create various types of layouts using Flexbox. It allows you to control the direction, wrapping behavior, alignment, spacing, and dimensions of its child elements, making it ideal for building responsive and dynamic layouts.
 
 ### Usage
 
+To use the `FlexBox` component in your HTML, include the following code:
+
+<code>html</code>
+
 ```html
-<flex-box row gap="20px">
-  <!-- Your flex items here -->
+<flex-box jc="center" ai="center" gap="20px">
+  <!-- Flex items here -->
 </flex-box>
 ```
 
 ### Props
 
-| Name   | Type    | Default | Description                                                             |
-| ------ | ------- | ------- | ----------------------------------------------------------------------- |
-| row    | Boolean | null    | Determines if the flex items should be arranged horizontally in a row.  |
-| column | Boolean | null    | Determines if the flex items should be arranged vertically in a column. |
-| gap    | String  | null    | Sets the spacing between the flex items.                                |
+The following properties are available for the `FlexBox` component:
 
-:::warning
-**Note:** Only one of `row` or `column` props should be specified. Specifying both will result in an error.
-:::
+| Name     | Type    | Default    | Description                                                                         |
+| -------- | ------- | ---------- | ----------------------------------------------------------------------------------- |
+| `jc`     | string  | flex-start | Sets the alignment of flex items along the main axis (justify-content).             |
+| `ai`     | string  | flex-start | Sets the alignment of flex items along the cross axis (align-items).                |
+| `ac`     | string  | flex-start | Sets the alignment of flex lines when there is extra space (align-content).         |
+| `dn`     | string  | row        | Defines the direction of the flex items (row, column, row-reverse, column-reverse). |
+| `wrap`   | string  | nowrap     | Controls whether the flex items wrap onto multiple lines (wrap, nowrap).            |
+| `gap`    | string  | 0          | Sets the spacing between flex items.                                                |
+| `w`      | string  | auto       | Sets the width of the flex container.                                               |
+| `h`      | string  | auto       | Sets the height of the flex container.                                              |
+| `mh`     | string  | auto       | Sets the minimum height of the flex container.                                      |
+| `mw`     | string  | auto       | Sets the minimum width of the flex container.                                       |
+| `wfull`  | boolean | false      | Sets the width to 100% (full width).                                                |
+| `hfull`  | boolean | false      | Sets the height to 100% (full height).                                              |
+| `wfit`   | boolean | false      | Makes child elements grow to fit the available space.                               |
+| `hfit`   | boolean | false      | Makes child elements grow to fit the available space.                               |
+| `start`  | boolean | false      | Aligns flex items to the start of the container (both axes).                        |
+| `end`    | boolean | false      | Aligns flex items to the end of the container (both axes).                          |
+| `center` | boolean | false      | Centers flex items both horizontally and vertically.                                |
+| `column` | boolean | false      | Arranges flex items in a column layout.                                             |
 
-### Styling Props
+### Styling
 
-The following props can be used to apply specific styling classes to the `FlexBox` component:
+The `FlexBox` component can be customized using CSS variables, allowing for fine-tuning of its appearance and behavior:
 
-- `nowrap` (boolean, optional): Prevents the flex items from wrapping to multiple lines. When set to `true`, the flex items are forced to stay on a single line.
-- `wrap` (boolean, optional): Allows the flex items to wrap to multiple lines. When set to `true`, the flex items wrap if necessary.
-- `reverse` (boolean, optional): Reverses the order of the flex items. When set to `true`, the flex items are displayed in reverse order.
-- `inline` (boolean, optional): Specifies whether the `FlexBox` should be displayed as an inline-flex container. When set to `true`, the `FlexBox` is rendered inline.
-- `center` (boolean, optional): Aligns the flex items both horizontally and vertically at the center of the `FlexBox`.
-- `middle` (boolean, optional): Aligns the flex items vertically at the center of the `FlexBox`.
-- `spread` (boolean, optional): Distributes the flex items evenly along the main axis, with equal space between them.
-- `stretch` (boolean, optional): Stretches the flex items to fill the container along the cross axis.
-- `start` (boolean, optional): Aligns the flex items to the start of the `FlexBox` along both the main and cross axes.
-- `end` (boolean, optional): Aligns the flex items to the end of the `FlexBox` along both the main and cross axes.
-- `ai` (string, optional): Sets the alignment of the flex items along the cross axis. Accepts values: `flex-start`, `flex-end`, `center`, `baseline`, `stretch`.
-- `jc` (string, optional): Sets the alignment of the flex items along the main axis. Accepts values: `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`, `start`, `end`.
-- `ac` (string, optional): Sets the alignment of the flex lines when there is extra space on the cross axis. Accepts values: `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`, `stretch`.
-
-### Custom CSS Styling
-
-The `FlexBox` component can be customized using CSS variables. The following variables are available:
-
-- `--f-b-db`: Specifies the display mode of the container. Defaults to `flex`.
-- `--f-b-dir`: Specifies the direction of the flex items. Defaults to `row` or `column` based on the specified props.
-- `--f-b-wp`: Specifies the wrapping behavior of the flex items. Defaults to `wrap`.
-- `--f-b-jc`: Specifies the alignment of the flex items along the main axis. Defaults to `flex-start`.
-- `--f-b-ai`: Specifies the alignment of the flex items along the cross axis. Defaults to `flex-start`.
-- `--f-b-ac`: Specifies the alignment of the flex lines when there is extra space on the cross axis. Defaults to `flex-start`.
-- `--f-b-gap`: Specifies the spacing between the flex items. Defaults to `0`.
+| Variable    | Description                                        |
+| ----------- | -------------------------------------------------- |
+| `--f-b-db`  | Display mode of the container. Defaults to `flex`. |
+| `--f-b-dir` | Flex direction (row, column, etc.).                |
+| `--f-b-wp`  | Wrapping behavior of the flex items.               |
+| `--f-b-jc`  | Alignment of flex items along the main axis.       |
+| `--f-b-ai`  | Alignment of flex items along the cross axis.      |
+| `--f-b-ac`  | Alignment of flex lines when there is extra space. |
+| `--f-b-gap` | Spacing between flex items.                        |
 
 ### Examples
 
-### Horizontal Flex Layout
+1. **Horizontal Flex Layout with Centered Items:**
 
 ```html
-<flex-box row>
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
+<flex-box jc="center" ai="center">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
 </flex-box>
 ```
 
-### Vertical Flex Layout
+This example centers the items horizontally and vertically within the flex container.
+
+2. **Vertical Flex Layout with Gap:**
 
 ```html
-<flex-box column>
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
+<flex-box column gap="20px">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
 </flex-box>
 ```
 
-### Flex Layout with Gap
+This sets up a vertical layout with 20px of space between each item.
+
+3. **Responsive Flex Layout:**
 
 ```html
-<flex-box row gap="20px">
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
-  <flex-cell></flex-cell>
+<flex-box dn="row, sm column" jc="space-between" gap="10px">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
 </flex-box>
 ```
 
-## FlexCell Component
+In this example, the layout changes from a row to a column on small screens (`sm`), with space evenly distributed between items.
 
-FlexCell is a web component that represents an adaptable building block within a grid layout. It provides various options for customization, including display properties, flex basis, maximum width, order, flex grow, and flex shrink.
+The `FlexBox` component is highly flexible, allowing you to create a wide range of layouts with ease, from simple rows and columns to complex responsive designs.
 
-:::tip
-This component must be a child of the **FlexBox** component
-:::
+## FlexCell
+
+The `FlexCell` component is a versatile building block within a grid or flexbox layout, providing essential functionality for creating responsive, flexible designs. It allows for precise control over the size, alignment, and behavior of each cell within a `FlexBox` or `FlexGrid` container.
 
 ### Usage
 
-To use the `FlexCell` component in your HTML project, include the following code:
+To use the `FlexCell` component in your HTML, include the following code:
+
+<code>html</code>
 
 ```html
 <flex-cell></flex-cell>
@@ -153,453 +286,467 @@ To use the `FlexCell` component in your HTML project, include the following code
 
 ### Props
 
-The `FlexCell` component supports the following props:
+The `FlexCell` component supports the following properties:
 
-| Name   | Type                                                       | Default | Description                        |
-| ------ | ---------------------------------------------------------- | ------- | ---------------------------------- |
-| order  | number                                                     | null    | The order of the cell in the grid. |
-| grow   | number                                                     | null    | The flex grow value of the cell.   |
-| shrink | number                                                     | null    | The flex shrink value of the cell. |
-| width  | string                                                     | null    | The width of the cell.             |
-| basis  | string                                                     | null    | The flex basis of the cell.        |
-| as     | center, start, end, stretch, baseline, auto, normal, unset | null    | The align self value of the cell.  |
+| Name    | Type   | Default | Description                                                                       |
+| ------- | ------ | ------- | --------------------------------------------------------------------------------- |
+| `d`     | string | block   | Sets the display type of the cell (e.g., `flex`, `block`).                        |
+| `as`    | string | stretch | Aligns the cell along the cross axis (e.g., `center`, `flex-start`, `stretch`).   |
+| `order` | number | 0       | Controls the order of the cell within the flex container.                         |
+| `g`     | number | 0       | Sets the flex-grow factor, allowing the cell to grow relative to other cells.     |
+| `sh`    | number | 0       | Sets the flex-shrink factor, allowing the cell to shrink relative to other cells. |
+| `w`     | string | auto    | Defines the width of the cell.                                                    |
+| `h`     | string | auto    | Defines the height of the cell.                                                   |
+| `bs`    | string | auto    | Sets the flex-basis property, determining the initial size of the cell.           |
+| `pd`    | string | 0       | Sets the padding inside the cell.                                                 |
 
-### Styling
+### Styling Attributes
 
-The FlexCell component can be styled using the following attributes on the `:host` selector:
+The `FlexCell` component can be further customized with several predefined attributes that modify its behavior and appearance:
 
-| Attribute  | Description                                          |
-| ---------- | ---------------------------------------------------- |
-| scrollable | Makes the flex cell scrollable.                      |
-| flex       | Sets the display of the flex cell to `flex`.         |
-| iflex      | Sets the display of the flex cell to `inline-flex`.  |
-| iblock     | Sets the display of the flex cell to `inline-block`. |
-| fill       | Sets the flex properties to `1 1 auto`.              |
-| fit        | Sets the flex properties to `1`.                     |
-| snug       | Sets the flex properties to `0`.                     |
-| auto       | Sets the flex properties to `0 1 auto`.              |
-| stretch    | Sets the flex grow property to `1`.                  |
-| order="X"  | Sets the order of the flex cell to `X`.              |
-| grow="X"   | Sets the flex grow factor to `X`.                    |
-| shrink="X" | Sets the flex shrink factor to `X`.                  |
-| as="X"     | Sets the align self value to `X`.                    |
+- **`fill`**: Expands the cell to fill the available space (`flex: 1 1 auto`).
+- **`fit`**: Grows the cell to fill the container (`flex: 1`).
+- **`snug`**: Prevents the cell from growing or shrinking (`flex: 0`).
+- **`auto`**: Sets the cell to have automatic width and height based on its content (`flex: 0 1 auto`).
+- **`stretch`**: Makes the cell stretch to fill the container along the cross axis (`flex-grow: 1`).
+- **`center`**: Centers the content inside the cell both horizontally and vertically.
 
-To use the 12-column grid system, you can apply the `cell-X` class to the FlexCell component, where X is a number from 1 to 12 representing the desired width of the column.
+### Responsive Design
 
-#### Responsive Layout
-
-To create responsive layouts, you can use the `cell-md-X `classes, where X is a number from 1 to 12 representing the desired width of the column. The `md` prefix indicates that the column width applies for medium-sized screens and above. You can also use other breakpoints such as `sm`, `lg`, and `xl` to target different screen sizes.
-
-:::tip
-To utilize the responsive utilities, you need to import the corresponding styles.
-:::
-
-The following options are available:
-
-#### CSS Media Queries
-
-If you want to use the responsive utilities based on CSS Media Queries, import the following CSS file:
-
-```html
-<link rel="stylesheet" href="flex-layout-system/dist/css-responsive.min.css" />
-```
-
-JavaScript System with flex-media Component
-If you want to use the responsive utilities based on the JavaScript system using the flex-media component, import the following CSS file:
-
-```html
-<link rel="stylesheet" href="flex-layout-system/dist/js-responsive.min.css" />
-```
-
-:::tip
-Make sure to include these styles in your project to enable the responsive features of the FlexCell component.
-:::
-
-### Custom CSS Styling
-
-The `FlexCell` component provides various styling options that can be customized using CSS variables. Here are some of the available CSS variables:
-
-- `--f-c-db`: Display value of the host element.
-- `--f-c-b`: Flex basis value of the host element.
-- `--f-c-o`: Order value of the host element.
-- `--f-c-g`: Flex grow value of the host element.
-- `--f-c-sh`: Flex shrink value of the host element.
+The `FlexCell` component supports responsive design through the `generateRootMediaRules` utility, allowing for dynamic adjustments based on screen size. You can define different values for properties like `display`, `align-self`, `width`, `height`, `padding`, and more, making `FlexCell` an ideal choice for adaptive layouts.
 
 ### Examples
 
-Here is an example of using the `FlexCell` component:
+1. **Basic FlexCell Usage:**
 
 ```html
-<flex-cell order="2" grow="3" shrink="1" width="50%"></flex-cell>
+<flex-cell w="50%" h="100px">
+  <!-- Content here -->
+</flex-cell>
 ```
 
-## FlexGrid
+This example sets up a `FlexCell` with a width of 50% and a height of 100px.
 
-**FlexGrid** is a component that creates a flexible grid layout. It is customizable with a **gap** property and **compact** mode.
-
-:::tip
-**Important**: The FlexGrid component should be a parent to a flex container (**FlexBox**). That is, any element that you want to apply the flex layout to should be nested inside the FlexGrid component.
-:::
-
-### Usage
-
-To use `FlexGrid`, simply include it in your HTML:
+2. **Responsive FlexCell:**
 
 ```html
-<flex-grid gap="10px">
-  <flex-container>
-    <!--...-->
-  </flex-container>
-</flex-grid>
+<flex-cell w="50%, xs 100%" pd="20px, sm 10px">
+  <!-- Responsive content here -->
+</flex-cell>
 ```
 
-### Props
+This example configures the `FlexCell` to have a width of 50% on larger screens, adjusting to 100% on extra small screens. The padding also changes from 20px to 10px based on screen size.
 
-The `FlexGrid` component has the following property:
+3. **Centering Content:**
 
-| Name | Type   | Default | Description                |
-| ---- | ------ | ------- | -------------------------- |
-| gap  | string | null    | The gap between grid items |
+```html
+<flex-cell center>
+  <!-- Centered content here -->
+</flex-cell>
+```
 
-### Styling
-
-`FlexGrid` component comes with built-in styles that can be modified by setting attributes:
-
-| Name    | Description              |
-| ------- | ------------------------ |
-| flex    | Enables flexible display |
-| compact | Removes padding          |
+This example uses the `center` attribute to align the content of the `FlexCell` both horizontally and vertically.
 
 ### Custom CSS Styling
 
-The CSS variables for the FlexGrid component:
+The `FlexCell` component provides several CSS variables for advanced styling:
 
-| Name      | Default | Description                     |
-| --------- | ------- | ------------------------------- |
-| --f-g-gap | 0       | Sets the gap between grid items |
+| Variable   | Default Value | Description                                                                      |
+| ---------- | ------------- | -------------------------------------------------------------------------------- |
+| `--f-g-pd` | 0             | Padding applied to the grid cell.                                                |
+| `--f-c-db` | block         | Sets the display mode of the cell.                                               |
+| `--f-c-o`  | 0             | Controls the order of the cell within the flex container.                        |
+| `--f-c-g`  | 0             | Flex-grow factor, defining how much the cell should grow relative to others.     |
+| `--f-c-sh` | 0             | Flex-shrink factor, defining how much the cell should shrink relative to others. |
+| `--f-c-w`  | auto          | Width of the cell.                                                               |
+| `--f-c-h`  | auto          | Height of the cell.                                                              |
+| `--f-c-bs` | auto          | Flex-basis value, determining the initial size of the cell.                      |
 
-## FlexMedia
+### Summary
 
-`FlexMediaBox` is a component that creates a flexible media box layout. It is customizable with `breakpoints`, `target`, and sizes properties. It listens for resize events and sets media sizes accordingly.
+The `FlexCell` component is a highly flexible and essential part of building responsive layouts with the Flex Layout System. It offers a wide range of customization options, allowing for precise control over how each cell behaves and displays within a grid or flexbox container.
+
+## DisplayBox
+
+The `DisplayBox` component is a versatile element designed for conditional rendering based on media queries and responsive display properties. This component allows you to control the visibility of content based on the current screen size or device type, using either CSS properties or JavaScript-based media queries.
 
 ### Usage
 
-To use **FlexMediaBox**, simply include it in your HTML:
+To use the `DisplayBox` component in your HTML, include the following code:
+
+<code>html</code>
 
 ```html
-<flex-media-box
-  breakpoints="780,1200,1400,1600"
-  target="#targetElement"
-></flex-media-box>
+<d-box d="block" media="(min-width: 600px)">
+  <!-- Content visible on screens wider than 600px -->
+</d-box>
 ```
 
 ### Props
 
-The **FlexMediaBox** component has the following properties:
+The `DisplayBox` component supports the following properties:
 
-| Name        | Type             | Default | Description                                             |
-| ----------- | ---------------- | ------- | ------------------------------------------------------- |
-| breakpoints | string           | null    | Comma-separated list of breakpoint numbers              |
-| target      | string           | null    | The target element to listen for resize events on       |
-| sizes       | string(Readonly) | null    | Sizes set by the component after listening resize event |
+| Name    | Type   | Default | Description                                               |
+| ------- | ------ | ------- | --------------------------------------------------------- |
+| `d`     | string | block   | Sets the display type of the box (e.g., `block`, `flex`). |
+| `media` | string | null    | Defines a media query string to control rendering.        |
 
-## StackedBox
+### Features
 
-The **StackedBox** is a component that creates a layout where all children are absolutely positioned, effectively making them stacked on top of each other. It comes with a **crop** attribute that when present, hides any overflowing content.
+- **Conditional Rendering**: The `DisplayBox` can conditionally render its content based on a specified media query using the `media` attribute. This allows you to hide or show content depending on the screen size, orientation, or any other criteria supported by `matchMedia`.
+- **Responsive Display**: Using the `d` attribute, you can set different display properties based on media queries, ensuring that the content adapts to various screen sizes or resolutions.
 
-### Usage
+### Responsive Design
 
-```html
-<stacked-box crop>
-  <stacked-cell z="1">1</stacked-cell>
-  <stacked-cell z="2">2</stacked-cell>
-</stacked-box>
-```
+The `DisplayBox` component leverages the `generateRootMediaRules` utility, enabling dynamic adjustments to the `display` property based on predefined breakpoints. This ensures that the content within the `DisplayBox` is only rendered when the specified conditions are met.
 
-### Props
+### Examples
 
-The **StackedBox** component does not have any properties to configure.
-
-### Styling
-
-The **StackedBox** component comes with built-in styles that can be adjusted using attributes:
-
-| Name | Description                   |
-| ---- | ----------------------------- |
-| crop | Hides any overflowing content |
-
-## StackedCell
-
-**StackedCell** is a component that should be used as a child within the **StackedBox** component. It is designed to be absolutely positioned within the **StackedBox**. The **StackedCell** component can be adjusted using various properties such as `xa`, `xb`, `ya`, `yb`, `z`, `oc` and attributes like `rel`, `overlay` and `stretch`.
-
-### Usage
+1. **Basic DisplayBox Usage:**
 
 ```html
-<stacked-box>
-  <stacked-cell
-    xa="10px"
-    ya="20px"
-    z="1"
-    oc="rgba(0, 0, 0, 0.5)"
-    rel
-    overlay
-    stretch
-  >
-    <!-- Content goes here -->
-  </stacked-cell>
-</stacked-box>
+<d-box d="flex">
+  <!-- Flexbox content here -->
+</d-box>
 ```
 
-### Props
+This example sets up a `DisplayBox` with a flex display.
 
-The **StackedCell** component has the following properties:
+2. **Conditional Rendering with Media Query:**
 
-| Name | Type   | Default | Description                                            |
-| ---- | ------ | ------- | ------------------------------------------------------ |
-| xa   | string | null    | The inset-inline-start value                           |
-| xb   | string | null    | The inset-inline-end value                             |
-| ya   | string | null    | The inset-block-start value                            |
-| yb   | string | null    | The inset-block-end value                              |
-| z    | string | null    | The z-index value                                      |
-| oc   | string | null    | The background color when the overlay attribute is set |
+```html
+<d-box d="block, sm none" media="(min-width: 768px)">
+  <!-- Content visible only on screens wider than 768px -->
+</d-box>
+```
 
-### Styling
+This example configures the `DisplayBox` to display its content as a block element on screens wider than 768px. The content will be hidden (`none`) on smaller screens.
 
-The **StackedCell** component comes with built-in styles that can be adjusted by setting attributes:
+3. **Responsive Display:**
 
-| Name    | Description                                           |
-| ------- | ----------------------------------------------------- |
-| rel     | Sets the position to relative                         |
-| overlay | Sets a background overlay                             |
-| stretch | Sets the inset to 0 (making the item fill its parent) |
+```html
+<d-box d="grid, xs block">
+  <!-- Content displayed as grid on larger screens, block on extra-small screens -->
+</d-box>
+```
+
+This example sets the display to `grid` on larger screens, and `block` on extra-small screens.
 
 ### Custom CSS Styling
 
-The CSS variables for the **StackedCell** component:
+The `DisplayBox` component provides the following custom CSS variable for advanced styling:
 
-| Name      | Default            | Description                                         |
-| --------- | ------------------ | --------------------------------------------------- |
-| --f-sc-s  | auto               | The inset-inline-start value                        |
-| --f-sc-e  | auto               | The inset-inline-end value                          |
-| --f-sc-t  | auto               | The inset-block-start value                         |
-| --f-sc-b  | auto               | The inset-block-end value                           |
-| --f-sc-z  | auto               | The z-index value                                   |
-| --f-sc-oc | rgba(0, 0, 0, 0.5) | The overlay color when the overlay attribute is set |
+| Variable         | Default Value | Description                                               |
+| ---------------- | ------------- | --------------------------------------------------------- |
+| `--f-db-display` | block         | Controls the display property based on the `d` attribute. |
 
-## FitBox
+### Summary
 
-**FitBox** is a component that creates a container box with several options for adjusting its layout and behavior. It allows control over its dimensions, overflow behavior, alignment, shape, and also how its child elements should fit within it.
-
-### Usage
-
-To use the **FitBox**, include it in your HTML and place any content you wish within it:
-
-```html
-<fit-box width="50%" height="200px" crop scrollable round cover>
-  <!-- Content goes here -->
-</fit-box>
-```
-
-### Props
-
-The **FitBox** component has the following properties:
-
-| Name   | Type   | Default | Description           |
-| ------ | ------ | ------- | --------------------- |
-| width  | string | null    | The width of the box  |
-| height | string | null    | The height of the box |
-
-### Styling
-
-The **FitBox** component comes with built-in styles that can be adjusted using attributes:
-
-| Name       | Description                                                                           |
-| ---------- | ------------------------------------------------------------------------------------- |
-| flex       | Changes the display property to flex                                                  |
-| stretch    | Makes the box fill its parent container                                               |
-| crop       | Hides any overflowing content                                                         |
-| scrollable | Makes the box scrollable                                                              |
-| center     | Centers the content within the box                                                    |
-| fill       | Makes the child elements fill the box                                                 |
-| round      | Makes the box circular                                                                |
-| cover      | Makes the child image(s) cover the box                                                |
-| contain    | Makes the child image(s) maintain their aspect ratio within the box                   |
-| force      | Enforces the stretch and fill properties, overriding any styles set by child elements |
-
-### Custom CSS Styling
-
-The CSS variables for the **FitBox** component:
-
-| Name     | Default | Description           |
-| -------- | ------- | --------------------- |
-| --f-fb-w | 100%    | The width of the box  |
-| --f-fb-h | auto    | The height of the box |
-
-## AspectRatio
-
-**AspectRatio** is a web component that can be used to create a container with a specific aspect ratio. The aspect ratio can be set using the **ratio** attribute, and it also has **center** and **fit** modes for the content inside the container.
-
-### Usage
-
-```html
-<a-ratio ratio="16/9">
-  <!-- Content goes here -->
-</a-ratio>
-```
-
-### Props
-
-| Name   | Type    | Default | Description                                                                                                                                                                              |
-| ------ | ------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| center | Boolean | true    | Centers the content inside the container if set to true.                                                                                                                                 |
-| ratio  | String  | null    | Sets the aspect ratio of the container. Supported values are: "1/1", "4/3", "16/9", "21/9", "3/4", "9/16", "9/21", "1/2", "2/1", "1/3", "3/1", "1/4", "4/1", "1/5", "5/1", "1/6", "6/1". |
-
-### Styling
-
-The `a-ratio` component provides several style options based on attribute settings. For example, the **center** attribute centers the content within the container and the **ratio** attribute adjusts the aspect ratio.
-
-| Name     | Description                                                          |
-| -------- | -------------------------------------------------------------------- |
-| --f-ar-v | Sets the aspect ratio of the container. The default value is 'auto'. |
-
-### Custom CSS Styling
-
-The `a-ratio` component has the following custom CSS properties:
-
-| Name     | Default | Description                             |
-| -------- | ------- | --------------------------------------- |
-| --f-ar-v | auto    | Sets the aspect ratio of the container. |
-
-## FlexDivider
-
-**FlexDivider** is a component that represents a horizontal divider. It can be used to visually separate content within a layout. The appearance of the divider can be customized using various properties.
-
-When no `h` or `v` attribute is provided, the `FlexDivider` component tries to adapt its style based on the parent container's flex direction. However, if the h or v attribute is specified, it overrides the adaptive behavior and forces the divider to be either `horizontal` or `vertical`, respectively.
-
-### Usage
-
-```html
-<flex-divider></flex-divider>
-```
-
-### Props
-
-| Name  | Type   | Default | Description                      |
-| ----- | ------ | ------- | -------------------------------- |
-| mg    | string | null    | The margin of the divider        |
-| width | string | null    | The width of the divider         |
-| color | string | null    | The color of the divider         |
-| size  | string | null    | The size (height) of the divider |
-
-### Styling
-
-The **FlexDivider** component comes with built-in styles that can be adjusted using attributes:
-
-| Attribute Name | Description                                                 |
-| -------------- | ----------------------------------------------------------- |
-| v              | Indicates a vertical divider                                |
-| h              | Indicates a horizontal divider                              |
-| stretch        | Stretches the divider to fill the available width or height |
-| dark           | Sets a dark background color for the divider                |
-
-### Custom CSS Styling
-
-The **FlexDivider** component has the following custom CSS properties:
-
-:::tip
-**Note**: The --f-divider-bg CSS variable is used to set the background color of the divider. By default, it uses either `--f-divider-bg-dark` or `--f-divider-bg-light` based on the presence of the dark attribute.
-:::
-
-| Name                          | Default                                                     | Description                                        |
-| ----------------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
-| --f-divider-size              | 1px                                                         | The width or height of the divider                 |
-| --f-divider-bg-dark           | rgba(255, 255, 255, 0.12)                                   | The dark background color of the divider           |
-| --f-divider-bg-light          | rgba(0, 0, 0, 0.12)                                         | The light background color of the divider          |
-| --f-vd-ops-size               | auto                                                        | The size (height) of the divider                   |
-| --f-divider-bg                | var(--f-divider-fallback-bg-dark, var(--f-divider-bg-dark)) | The background color of the divider                |
-| --f-divider-fallback-bg-dark  | var(--f-divider-bg-dark)                                    | The fallback dark background color of the divider  |
-| --f-divider-fallback-bg-light | var(--f-divider-bg-light)                                   | The fallback light background color of the divider |
+The `DisplayBox` component is a powerful tool for managing the visibility of content based on media queries and responsive display properties. It offers a flexible way to tailor content presentation to different devices and screen sizes, making it an essential component for responsive web design.
 
 ## SpaceBox
 
-The **SpaceBox** component represents a box with adjustable `width`, `height`, or `size`.
+The `SpaceBox` component, also referred to as `StackedBox`, is a versatile and straightforward element designed to create responsive spacing within layouts. It allows for flexible adjustment of both width and height, making it an ideal tool for managing spacing between elements in a layout.
 
 ### Usage
 
-To use the **SpaceBox** component, simply include it in your HTML:
+To use the `SpaceBox` component in your HTML, include the following code:
+
+<code>html</code>
 
 ```html
-<space-box></space-box>
+<space-box size="20px"></space-box>
 ```
 
 ### Props
 
-| Name   | Type   | Default | Description                            |
-| ------ | ------ | ------- | -------------------------------------- |
-| width  | string | null    | The width of the box                   |
-| height | string | null    | The height of the box                  |
-| size   | string | null    | The size (width and height) of the box |
+The `SpaceBox` component supports the following properties:
 
-### Custom Styling
+| Name      | Type    | Default | Description                                |
+| --------- | ------- | ------- | ------------------------------------------ |
+| `size`    | string  | auto    | Sets the width and height of the box.      |
+| `stretch` | boolean | false   | Stretches the box to fill available space. |
+| `wfull`   | boolean | false   | Sets the width to 100% (full width).       |
+| `hfull`   | boolean | false   | Sets the height to 100% (full height).     |
 
-```tip
-**Note**: You can use the `width`, `height`, `and` size props to adjust the corresponding CSS properties of the SpaceBox.
+### Features
+
+- **Flexible Spacing**: The `SpaceBox` allows you to define a specific size for spacing between elements using the `size` attribute. This can be particularly useful for creating consistent spacing in your design.
+
+- **Responsive Sizing**: The `size` attribute can also be used in conjunction with media queries to create responsive spacing that adapts to different screen sizes. This ensures that your layout remains visually balanced across various devices.
+
+- **Stretch and Full-Size Options**: With the `stretch`, `wfull`, and `hfull` properties, the `SpaceBox` can be made to stretch and fill the available space, either horizontally, vertically, or both.
+
+### Responsive Design
+
+The `SpaceBox` leverages the `generateRootMediaRules` utility to dynamically adjust its width and height based on the `size` attribute. This ensures that the component can respond to different screen sizes or resolutions, providing optimal spacing in all scenarios.
+
+### Examples
+
+1. **Basic Spacing:**
+
+```html
+<space-box size="20px"></space-box>
 ```
 
-| CSS Property | Default | Description                     |
-| ------------ | ------- | ------------------------------- |
-| --f-sbx-db   | block   | The display property of the box |
-| --f-sbx-w    | 100%    | The width of the box            |
-| --f-sbx-h    | auto    | The height of the box           |
+This example creates a `SpaceBox` with a fixed size of 20px.
+
+2. **Responsive Spacing:**
+
+```html
+<space-box size="40px, xs 10px"></space-box>
+```
+
+This example sets a responsive size for the `SpaceBox`, where the size is 40px by default and 10px on extra-small screens (`xs`).
+
+3. **Full Width and Height:**
+
+```html
+<space-box wf hf></space-box>
+```
+
+This example creates a `SpaceBox` that takes up the full width and height of its container.
+
+4. **Stretch to Fill Space:**
+
+```html
+<space-box stretch></space-box>
+```
+
+This example stretches the `SpaceBox` to fill the available space within its container.
+
+### Custom CSS Styling
+
+The `SpaceBox` component provides the following custom CSS variables for advanced styling:
+
+| Variable       | Default Value | Description                                      |
+| -------------- | ------------- | ------------------------------------------------ |
+| `--f-sbx-w`    | 100%          | Controls the width of the `SpaceBox`.            |
+| `--f-sbx-h`    | auto          | Controls the height of the `SpaceBox`.           |
+| `--f-sbx-size` | auto          | Controls both width and height if `size` is set. |
+
+### Summary
+
+The `SpaceBox` is a simple yet powerful component for creating responsive spacing within your layouts. Whether you need fixed spacing, responsive adjustments, or a box that fills available space, the `SpaceBox` provides the flexibility you need to maintain a clean and organized design.
 
 ## StyleBox
 
-The `StyleBox` component allows you to customize various styling properties of an HTML element.
-
-### Props
-
-| Name  | Type   | Default | Description                             |
-| ----- | ------ | ------- | --------------------------------------- |
-| color | string | null    | The color of the element                |
-| scale | string | null    | The scale of the element                |
-| fz    | string | null    | The font size of the element            |
-| fw    | string | null    | The font weight of the element          |
-| lh    | string | null    | The line height of the element          |
-| w     | string | null    | The width of the element                |
-| h     | string | null    | The height of the element               |
-| mw    | string | null    | The minimum width of the element        |
-| mh    | string | null    | The minimum height of the element       |
-| mxw   | string | null    | The maximum width of the element        |
-| mxh   | string | null    | The maximum height of the element       |
-| pis   | string | null    | The inline start padding of the element |
-| pie   | string | null    | The inline end padding of the element   |
-| pbs   | string | null    | The block start padding of the element  |
-| pbe   | string | null    | The block end padding of the element    |
-| mis   | string | null    | The inline start margin of the element  |
-| mie   | string | null    | The inline end margin of the element    |
-| mbs   | string | null    | The block start margin of the element   |
-| mbe   | string | null    | The block end margin of the element     |
-| mg    | string | null    | The margin of the element               |
-| pd    | string | null    | The padding of the element              |
-| ta    | string | null    | The text alignment of the element       |
-| op    | string | null    | The opacity of the element              |
-| td    | string | null    | The text decoration of the element      |
-| br    | string | null    | The border radius of the element        |
-| px    | string | null    | The horizontal padding (left and right) |
-| py    | string | null    | The vertical padding (top and bottom)   |
-| mx    | string | null    | The horizontal margin (left and right)  |
-| my    | string | null    | The vertical margin (top and bottom)    |
+The `StyleBox` component is an advanced, highly customizable element designed to provide extensive control over styling and layout in web design. It allows you to apply a wide range of CSS properties directly within your HTML, making it a powerful tool for creating responsive and visually consistent layouts.
 
 ### Usage
 
-To use the `StyleBox` component, simply include it in your HTML:
+To use the `StyleBox` component in your HTML, include the following code:
+
+<code>html</code>
 
 ```html
-<s-box fz="12px"></s-box>
+<s-box w="100%" h="300px" bgc="lightblue" ta="center" pd="20px">
+  Content centered with padding
+</s-box>
 ```
 
-### Styling Props
+### Props
 
-- `block` - Sets the display property of the element to `block`.
-- `inline` - Sets the display property of the element to `inline`.
-- `inherit` - Sets the display property for text-decoration, font-size, font-weight, line-height, text-align, text-transform of the element to `inherit`.
+The `StyleBox` component supports a wide array of properties, enabling precise control over layout and styling:
+
+| Name         | Type    | Default | Description                                                       |
+| ------------ | ------- | ------- | ----------------------------------------------------------------- |
+| `fit`        | string  | null    | Controls the `object-fit` property for slotted images or videos.  |
+| `unstyle`    | boolean | false   | Removes all default styles from slotted content.                  |
+| `block`      | boolean | false   | Sets the display to `block`.                                      |
+| `inline`     | boolean | false   | Sets the display to `inline`.                                     |
+| `d`          | string  | null    | Controls the display property of the box.                         |
+| `round`      | boolean | false   | Makes the box circular by applying a 50% border radius.           |
+| `stretch`    | boolean | false   | Expands the box to fill the available space.                      |
+| `zi`         | string  | null    | Sets the `z-index` of the box.                                    |
+| `pos`        | string  | null    | Controls the `position` property of the box.                      |
+| `inset`      | string  | null    | Sets the `inset` (top, right, bottom, left) values of the box.    |
+| `fill`       | boolean | false   | Forces slotted content to fill the box's width and height.        |
+| `wfull`      | boolean | false   | Sets the width to 100% (full width).                              |
+| `hfull`      | boolean | false   | Sets the height to 100% (full height).                            |
+| `bgblur`     | string  | null    | Applies a background blur effect to the box.                      |
+| `crop`       | boolean | false   | Hides any overflow content by setting `overflow: hidden`.         |
+| `sr-only`    | boolean | false   | Visually hides content but keeps it accessible to screen readers. |
+| `scrollable` | boolean | false   | Makes the box scrollable by setting `overflow: auto`.             |
+| `ws`         | string  | null    | Sets the `white-space` property.                                  |
+| `color`      | string  | null    | Sets the text color of the box.                                   |
+| `bgc`        | string  | null    | Sets the background color of the box.                             |
+| `fz`         | string  | null    | Controls the `font-size` of the box's content.                    |
+| `fw`         | string  | null    | Controls the `font-weight` of the box's content.                  |
+| `lh`         | string  | null    | Controls the `line-height` of the box's content.                  |
+| `w`          | string  | null    | Sets the width of the box.                                        |
+| `h`          | string  | null    | Sets the height of the box.                                       |
+| `mw`         | string  | null    | Sets the minimum width of the box.                                |
+| `mxw`        | string  | null    | Sets the maximum width of the box.                                |
+| `mh`         | string  | null    | Sets the minimum height of the box.                               |
+| `mxh`        | string  | null    | Sets the maximum height of the box.                               |
+| `tt`         | string  | null    | Controls the `text-transform` property of the box's content.      |
+| `pis`        | string  | null    | Sets the `padding-inline-start` property.                         |
+| `pie`        | string  | null    | Sets the `padding-inline-end` property.                           |
+| `pbs`        | string  | null    | Sets the `padding-block-start` property.                          |
+| `pbe`        | string  | null    | Sets the `padding-block-end` property.                            |
+| `mis`        | string  | null    | Sets the `margin-inline-start` property.                          |
+| `mie`        | string  | null    | Sets the `margin-inline-end` property.                            |
+| `mbs`        | string  | null    | Sets the `margin-block-start` property.                           |
+| `mbe`        | string  | null    | Sets the `margin-block-end` property.                             |
+| `mg`         | string  | null    | Sets the margin around the box.                                   |
+| `pd`         | string  | null    | Sets the padding inside the box.                                  |
+| `ta`         | string  | null    | Controls the `text-align` property of the box's content.          |
+| `op`         | string  | null    | Sets the opacity of the box.                                      |
+| `td`         | string  | null    | Controls the `text-decoration` property of the box's content.     |
+| `br`         | string  | null    | Sets the border-radius of the box.                                |
+| `pi`         | string  | null    | Controls the `padding-inline` property.                           |
+| `pb`         | string  | null    | Controls the `padding-block` property.                            |
+| `mi`         | string  | null    | Controls the `margin-inline` property.                            |
+| `mb`         | string  | null    | Controls the `margin-block` property.                             |
+| `fg`         | string  | null    | Sets the flex-grow property of the box.                           |
+| `ratio`      | string  | null    | Sets the aspect-ratio property of the box.                        |
+
+### Features
+
+- **Flexible Layout and Styling**: `StyleBox` allows for the application of various CSS properties, including display, size, padding, margin, and alignment, directly via HTML attributes. This simplifies the process of creating and adjusting layouts.
+
+- **Responsive Design**: The component supports responsive attributes for properties such as width, height, padding, and margin. This ensures that your layout can adapt to different screen sizes without needing additional media queries.
+
+- **Logical Properties**: `StyleBox` supports logical CSS properties like `padding-inline`, `margin-block`, etc., making it fully compatible with both LTR (Left-to-Right) and RTL (Right-to-Left) text directions.
+
+- **Object Fit**: With the `fit` attribute, you can control how slotted images or videos fit within the box. This is particularly useful for maintaining aspect ratios in responsive designs.
+
+- **Accessibility Features**: The `sr-only` attribute is available to visually hide content while keeping it accessible to screen readers, enhancing the accessibility of your site.
+
+- **Customizable Borders and Shapes**: The `round` attribute makes it easy to create circular elements by applying a 50% border radius, while the `crop` attribute hides overflow content, creating a clean and focused design.
+
+### Responsive Design
+
+`StyleBox` utilizes the `generateRootMediaRules` utility to dynamically adjust its styles based on various breakpoints. This allows for the creation of responsive layouts that automatically adjust to different screen sizes.
+
+For example:
+
+<code>html</code>
+
+```html
+<s-box pd="20px, sm 10px" mg="10px, sm 5px">
+  Responsive padding and margin
+</s-box>
+```
+
+This example applies different padding and margin values depending on the screen size.
+
+### Examples
+
+1. **Basic Styling:**
+
+```html
+<s-box w="100%" h="300px" bgc="lightblue" ta="center" pd="20px">
+  Content centered with padding
+</s-box>
+```
+
+2. **Responsive Padding and Margin:**
+
+```html
+<s-box pd="20px, sm 10px" mg="10px, sm 5px">
+  Responsive padding and margin
+</s-box>
+```
+
+3. **Circular Shape with Centered Content:**
+
+```html
+<s-box center round w="100px" h="100px" bgc="red"> Circle </s-box>
+```
+
+4. **Screen Reader Only Content:**
+
+```html
+<s-box sr-only> Screen reader only content </s-box>
+```
+
+5. **Object Fit for Images or Videos:**
+
+```html
+<s-box object-fit="cover" fit>
+  <img src="image.jpg" alt="Cover Image" />
+</s-box>
+```
+
+### Summary
+
+The `StyleBox` component is a highly flexible and powerful tool for web developers who need granular control over their layouts and styling. It is ideal for creating responsive, accessible, and visually consistent designs across various screen sizes and devices.
+
+## FlexMedia
+
+The `FlexMedia` component is a powerful tool for handling responsive design in web applications. It dynamically adjusts to different screen sizes or container widths by setting appropriate media modes, which are reflected in the component's attributes. This allows developers to create layouts that adapt seamlessly across various devices and screen sizes.
+
+### Usage
+
+To use the `FlexMedia` component in your HTML, include the following code:
+
+```html
+<flex-media breakpoints="480, 768, 1024, 1280, 1440" target="window">
+  <!-- Responsive content here -->
+</flex-media>
+```
+
+### Props
+
+The `FlexMedia` component provides several properties that allow you to control how it behaves:
+
+| Name          | Type   | Default | Description                                                                                 |
+| ------------- | ------ | ------- | ------------------------------------------------------------------------------------------- |
+| `breakpoints` | string | null    | A comma-separated list of pixel values that define the breakpoints.                         |
+| `target`      | string | null    | Specifies the target element to listen for resize events. Defaults to the component itself. |
+| `sizes`       | string | null    | Reflects the current active media modes based on the component's width.                     |
+
+### Features
+
+- **Responsive Breakpoints**: The `breakpoints` property allows you to define custom breakpoints at which the component will adjust its behavior. These breakpoints are specified as a comma-separated list of pixel values.
+
+- **Dynamic Resizing**: The component listens to resize events on a specified target element (such as the window or a specific container) and adjusts the active media modes accordingly.
+
+- **Flexible Targeting**: You can specify any element as the target for resize events using the `target` property. By default, the component listens to resize events on itself.
+
+- **Media Mode Reflection**: The component dynamically updates its `sizes` attribute with the active media modes, reflecting the current state based on the width of the target element.
+
+### Responsive Design
+
+The `FlexMedia` component is designed to support a wide range of responsive design needs. By defining breakpoints, you can ensure that your content adapts smoothly to different screen sizes.
+
+For example:
+
+```html
+<flex-media breakpoints="480, 768, 1024" target="#mainContainer">
+  <!-- Responsive content here -->
+</flex-media>
+```
+
+This example sets up a `FlexMedia` component that listens for resize events on the `#mainContainer` element and adjusts its layout based on the defined breakpoints.
+
+### Breakpoints and Modes
+
+The `breakpoints` property is a comma-separated list of pixel values that define where the media modes change. The component automatically maps these breakpoints to the predefined media sizes (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`). For example:
+
+- `xs`: 0px and up
+- `sm`: 480px and up
+- `md`: 768px and up
+- `lg`: 1024px and up
+- `xl`: 1280px and up
+- `xxl`: 1440px and up
+
+### Example
+
+Here's how you can implement the `FlexMedia` component:
+
+```html
+<flex-media breakpoints="480, 768, 1024, 1280" target="window">
+  <div>
+    <!-- Responsive content that adapts to the screen size -->
+  </div>
+</flex-media>
+```
+
+In this example, the component will adjust based on the window's width, updating its `sizes` attribute to reflect the active media modes (`[xs]`, `[sm]`, `[md]`, `[lg]`, `[xl]`, `[xxl]`).
+
+### Summary
+
+The `FlexMedia` component is an essential tool for managing responsive designs. By allowing developers to define custom breakpoints and dynamically adjusting to different screen sizes, it provides the flexibility needed to create adaptive layouts that work across all devices.

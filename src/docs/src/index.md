@@ -1,15 +1,21 @@
 ---
 home: true
-heroImage: https://flex-layout-system.netlify.app/assets/logo.svg
-tagline: Flex Layout System
+heroImage: https://flexlayout.com/assets/logo.svg
+tagline: Flex Layout
 actionText: Quick Start →
 actionLink: /components/
 features:
-  - title: Simplify Layouts
-    details: Create flexible and responsive layouts with ease using the powerful Flex Layout System.
-  - title: Efficient Design
-    details: Optimize your design process by leveraging the intuitive web components for seamless layout creation.
+  - title: Simplified Layouts
+    details: Effortlessly create responsive and flexible layouts with the enhanced capabilities of Flex Layout System.
+  - title: Built-in Responsiveness
+    details: Enjoy built-in responsive behaviors in components without needing additional media queries or external CSS.
   - title: Versatile Components
-    details: Utilize a variety of components, such as FlexContainer, FlexCell, and Grid, to achieve precise and dynamic layouts.
+    details: Leverage a streamlined set of components, including FlexBox, FlexCell, and Grid, to build complex and adaptive layouts.
+  - title: Logical CSS Properties
+    details: Benefit from support for logical properties like padding, margin, and border-radius, ensuring LTR and RTL compatibility.
+  - title: Self-contained Styles
+    details: All styles are encapsulated within the components, promoting consistency and reducing the need for external stylesheets.
+  - title: Framework Agnostic
+    details: Flex Layout is designed to work seamlessly with any framework, including React, Angular, and plain HTML/JS.
 footer: Made by Unbywyd with ❤️
 ---

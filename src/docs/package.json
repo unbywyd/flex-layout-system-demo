@@ -1,7 +1,7 @@
 {
   "name": "docs",
-  "version": "0.0.1",
-  "description": "Flex Layout System",
+  "version": "2.0.0",
+  "description": "Flex Layout",
   "main": "index.js",
   "authors": {
     "name": "Unbywyd",
